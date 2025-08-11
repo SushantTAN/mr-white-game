@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Props = {
   playerName: string;
   setPlayerName: (v: string) => void;
