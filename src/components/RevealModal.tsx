@@ -1,6 +1,5 @@
 import type { RevealState, Role, WordSet } from "../types";
 
-
 type Props = {
   reveal: RevealState;
   currentSet: WordSet | null;
@@ -17,10 +16,10 @@ export default function RevealModal({ reveal, currentSet, playerName, onClose }:
   if (!reveal.open) return null;
 
   const shouldHideWord = !!reveal.hideWord;
+  const shouldHideRole = !!reveal.hideRole;
 
   const word = (() => {
-    if (shouldHideWord) return ''; // elimination reveal: role only
-    if (!currentSet || !reveal.role) return '';
+    if (shouldHideWord || !currentSet || !reveal.role) return '';
     if (reveal.role === 'CIVILIAN') return `Word: ${currentSet.civilianWord}`;
     if (reveal.role === 'UNDERCOVER') return `Word: ${currentSet.undercoverWord}`;
     return 'Mr. White: No word';
@@ -48,13 +47,22 @@ export default function RevealModal({ reveal, currentSet, playerName, onClose }:
         }}
       >
         <h2 style={{ marginTop: 0, marginBottom: 10 }}>{playerName}</h2>
-        <div style={{ fontSize: '1.1rem', marginBottom: 12 }}>
-          <strong>Role: {roleLabel(reveal.role)}</strong>
-        </div>
+
+        {!shouldHideRole && (
+          <div style={{ fontSize: '1.1rem', marginBottom: 12 }}>
+            <strong>Role: {roleLabel(reveal.role)}</strong>
+          </div>
+        )}
 
         {!shouldHideWord && (
           <div className="word" style={{ fontSize: '1.15rem' }}>
             {word}
+          </div>
+        )}
+
+        {shouldHideRole && shouldHideWord && (
+          <div className="word" style={{ fontSize: '1.05rem', color: '#334155' }}>
+            (No word shown)
           </div>
         )}
 

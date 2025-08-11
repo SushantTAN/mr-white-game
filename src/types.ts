@@ -20,8 +20,10 @@ export type RevealState = {
   open: boolean;
   playerId?: string;
   role?: Role;
-  /** If true, the modal must NOT show the word (used for elimination reveals). */
+  /** If true, do not display the word in the modal (used for Mr. White and eliminations). */
   hideWord?: boolean;
+  /** If true, do not display the role in the modal (used for normal civilian/undercover picks). */
+  hideRole?: boolean;
 };
 
 export type GameOverState = {

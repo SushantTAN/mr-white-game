@@ -202,7 +202,7 @@ export default function App() {
       setGameOver({ open: true, winner: 'UNDERCOVER', aliveBad, aliveCiv });
       return true;
     }
-    // If you want civilians to auto-win when no bad guys remain, uncomment:
+    // If you want civilians auto-win when no bad guys remain, uncomment:
     // if (aliveBad === 0) { setGameOver({ open: true, winner: 'CIVILIANS', aliveBad, aliveCiv }); return true; }
     return false;
   }
@@ -225,12 +225,27 @@ export default function App() {
     );
     setPlayers(updatedPlayers);
 
-    // IMPORTANT CHANGE: Do NOT check end condition on pick
-    // (prevents early auto-win during the draw phase)
-    // maybeEndGame(nextDeck, updatedPlayers);  <-- removed
-
-    // NORMAL reveal (show word): hideWord = false
-    setReveal({ open: true, playerId: currentPlayer.id, role: card.role, hideWord: false });
+    // ✅ ALWAYS open the modal after a pick,
+    // but control what it shows:
+    if (card.role === 'MR_WHITE') {
+      // Show role, hide word
+      setReveal({
+        open: true,
+        playerId: currentPlayer.id,
+        role: card.role,
+        hideWord: true,
+        hideRole: false
+      });
+    } else {
+      // Hide role, show word
+      setReveal({
+        open: true,
+        playerId: currentPlayer.id,
+        role: card.role,
+        hideWord: false,
+        hideRole: true
+      });
+    }
   };
 
   // after hiding, move to next eligible player
@@ -239,7 +254,7 @@ export default function App() {
     const nextIdx = nextEligibleIndex(players, (turnIndex + 1) % players.length);
     setTurnIndex(nextIdx);
 
-    // OPTIONAL: If you want to auto-check once everyone has picked:
+    // OPTIONAL: check end only when everyone picked or after eliminations
     // if (players.every(p => p.picked || p.eliminated)) {
     //   maybeEndGame(deck, players);
     // }
@@ -278,9 +293,15 @@ export default function App() {
       setPlayers(playersNext);
       setDeck(deckNext);
 
-      // Elimination reveal: role ONLY
+      // ELIMINATION reveal: role ONLY (no word)
       if (roleToReveal) {
-        setReveal({ open: true, playerId: id, role: roleToReveal, hideWord: true });
+        setReveal({
+          open: true,
+          playerId: id,
+          role: roleToReveal,
+          hideWord: true,
+          hideRole: false
+        });
       }
 
       // advance turn if we eliminated the current player
@@ -290,16 +311,14 @@ export default function App() {
         setTurnIndex(nextIdx);
       }
 
-      // IMPORTANT: Check win condition AFTER elimination
+      // Check win AFTER elimination
       maybeEndGame(deckNext, playersNext);
     } else {
-      // restore
+      // restore (house rule)
       const playersNext = players.map((p) =>
         p.id === id ? { ...p, eliminated: false } : p
       );
       setPlayers(playersNext);
-      // You can re-check if you allow restores
-      // maybeEndGame(deck, playersNext);
     }
   };
 
