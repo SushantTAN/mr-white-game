@@ -1,0 +1,814 @@
+[
+  {
+    "civilianWord": "milk",
+    "undercoverWord": "juice"
+  },
+  {
+    "civilianWord": "snake",
+    "undercoverWord": "lizard"
+  },
+  {
+    "civilianWord": "exam",
+    "undercoverWord": "test"
+  },
+  {
+    "civilianWord": "crab",
+    "undercoverWord": "lobster"
+  },
+  {
+    "civilianWord": "shark",
+    "undercoverWord": "dolphin"
+  },
+  {
+    "civilianWord": "shirt",
+    "undercoverWord": "blouse"
+  },
+  {
+    "civilianWord": "seal",
+    "undercoverWord": "otter"
+  },
+  {
+    "civilianWord": "ape",
+    "undercoverWord": "gorilla"
+  },
+  {
+    "civilianWord": "pepper",
+    "undercoverWord": "chili"
+  },
+  {
+    "civilianWord": "ball",
+    "undercoverWord": "bat"
+  },
+  {
+    "civilianWord": "potato",
+    "undercoverWord": "tomato"
+  },
+  {
+    "civilianWord": "umbrella",
+    "undercoverWord": "parasol"
+  },
+  {
+    "civilianWord": "park",
+    "undercoverWord": "garden"
+  },
+  {
+    "civilianWord": "mirror",
+    "undercoverWord": "window"
+  },
+  {
+    "civilianWord": "sand",
+    "undercoverWord": "soil"
+  },
+  {
+    "civilianWord": "dawn",
+    "undercoverWord": "dusk"
+  },
+  {
+    "civilianWord": "ink",
+    "undercoverWord": "paint"
+  },
+  {
+    "civilianWord": "day",
+    "undercoverWord": "night"
+  },
+  {
+    "civilianWord": "river",
+    "undercoverWord": "stream"
+  },
+  {
+    "civilianWord": "school",
+    "undercoverWord": "university"
+  },
+  {
+    "civilianWord": "paper",
+    "undercoverWord": "cardboard"
+  },
+  {
+    "civilianWord": "kangaroo",
+    "undercoverWord": "koala"
+  },
+  {
+    "civilianWord": "class",
+    "undercoverWord": "lecture"
+  },
+  {
+    "civilianWord": "glove",
+    "undercoverWord": "mitten"
+  },
+  {
+    "civilianWord": "hour",
+    "undercoverWord": "week"
+  },
+  {
+    "civilianWord": "heater",
+    "undercoverWord": "radiator"
+  },
+  {
+    "civilianWord": "game",
+    "undercoverWord": "puzzle"
+  },
+  {
+    "civilianWord": "plate",
+    "undercoverWord": "tray"
+  },
+  {
+    "civilianWord": "ant",
+    "undercoverWord": "bee"
+  },
+  {
+    "civilianWord": "planet",
+    "undercoverWord": "comet"
+  },
+  {
+    "civilianWord": "storm",
+    "undercoverWord": "cyclone"
+  },
+  {
+    "civilianWord": "wallet",
+    "undercoverWord": "purse"
+  },
+  {
+    "civilianWord": "brush",
+    "undercoverWord": "roller"
+  },
+  {
+    "civilianWord": "asteroid",
+    "undercoverWord": "meteor"
+  },
+  {
+    "civilianWord": "lamp",
+    "undercoverWord": "torch"
+  },
+  {
+    "civilianWord": "paint",
+    "undercoverWord": "ink"
+  },
+  {
+    "civilianWord": "autumn",
+    "undercoverWord": "fall"
+  },
+  {
+    "civilianWord": "tree",
+    "undercoverWord": "bush"
+  },
+  {
+    "civilianWord": "lemon",
+    "undercoverWord": "lime"
+  },
+  {
+    "civilianWord": "computer",
+    "undercoverWord": "laptop"
+  },
+  {
+    "civilianWord": "second",
+    "undercoverWord": "minute"
+  },
+  {
+    "civilianWord": "stove",
+    "undercoverWord": "grill"
+  },
+  {
+    "civilianWord": "street",
+    "undercoverWord": "avenue"
+  },
+  {
+    "civilianWord": "plane",
+    "undercoverWord": "helicopter"
+  },
+  {
+    "civilianWord": "song",
+    "undercoverWord": "melody"
+  },
+  {
+    "civilianWord": "oven",
+    "undercoverWord": "microwave"
+  },
+  {
+    "civilianWord": "monkey",
+    "undercoverWord": "chimpanzee"
+  },
+  {
+    "civilianWord": "chicken",
+    "undercoverWord": "turkey"
+  },
+  {
+    "civilianWord": "doctor",
+    "undercoverWord": "nurse"
+  },
+  {
+    "civilianWord": "medal",
+    "undercoverWord": "trophy"
+  },
+  {
+    "civilianWord": "shoes",
+    "undercoverWord": "sandals"
+  },
+  {
+    "civilianWord": "film",
+    "undercoverWord": "movie"
+  },
+  {
+    "civilianWord": "elephant",
+    "undercoverWord": "hippo"
+  },
+  {
+    "civilianWord": "duck",
+    "undercoverWord": "goose"
+  },
+  {
+    "civilianWord": "soap",
+    "undercoverWord": "shampoo"
+  },
+  {
+    "civilianWord": "drum",
+    "undercoverWord": "flute"
+  },
+  {
+    "civilianWord": "book",
+    "undercoverWord": "magazine"
+  },
+  {
+    "civilianWord": "grape",
+    "undercoverWord": "berry"
+  },
+  {
+    "civilianWord": "owl",
+    "undercoverWord": "bat"
+  },
+  {
+    "civilianWord": "rabbit",
+    "undercoverWord": "hare"
+  },
+  {
+    "civilianWord": "bucket",
+    "undercoverWord": "basin"
+  },
+  {
+    "civilianWord": "chair",
+    "undercoverWord": "sofa"
+  },
+  {
+    "civilianWord": "month",
+    "undercoverWord": "year"
+  },
+  {
+    "civilianWord": "noon",
+    "undercoverWord": "midnight"
+  },
+  {
+    "civilianWord": "snow",
+    "undercoverWord": "rain"
+  },
+  {
+    "civilianWord": "tank",
+    "undercoverWord": "jeep"
+  },
+  {
+    "civilianWord": "venus",
+    "undercoverWord": "jupiter"
+  },
+  {
+    "civilianWord": "neptune",
+    "undercoverWord": "pluto"
+  },
+  {
+    "civilianWord": "stone",
+    "undercoverWord": "rock"
+  },
+  {
+    "civilianWord": "key",
+    "undercoverWord": "lock"
+  },
+  {
+    "civilianWord": "lightning",
+    "undercoverWord": "thunder"
+  },
+  {
+    "civilianWord": "torch",
+    "undercoverWord": "flashlight"
+  },
+  {
+    "civilianWord": "galaxy",
+    "undercoverWord": "universe"
+  },
+  {
+    "civilianWord": "bridge",
+    "undercoverWord": "tunnel"
+  },
+  {
+    "civilianWord": "rain",
+    "undercoverWord": "hail"
+  },
+  {
+    "civilianWord": "penguin",
+    "undercoverWord": "seagull"
+  },
+  {
+    "civilianWord": "mouse",
+    "undercoverWord": "keyboard"
+  },
+  {
+    "civilianWord": "current",
+    "undercoverWord": "flow"
+  },
+  {
+    "civilianWord": "rice",
+    "undercoverWord": "barley"
+  },
+  {
+    "civilianWord": "guitar",
+    "undercoverWord": "violin"
+  },
+  {
+    "civilianWord": "star",
+    "undercoverWord": "planet"
+  },
+  {
+    "civilianWord": "knife",
+    "undercoverWord": "dagger"
+  },
+  {
+    "civilianWord": "sun",
+    "undercoverWord": "star"
+  },
+  {
+    "civilianWord": "salt",
+    "undercoverWord": "sugar"
+  },
+  {
+    "civilianWord": "winter",
+    "undercoverWord": "summer"
+  },
+  {
+    "civilianWord": "sock",
+    "undercoverWord": "stocking"
+  },
+  {
+    "civilianWord": "sky",
+    "undercoverWord": "cloud"
+  },
+  {
+    "civilianWord": "peacock",
+    "undercoverWord": "parrot"
+  },
+  {
+    "civilianWord": "television",
+    "undercoverWord": "monitor"
+  },
+  {
+    "civilianWord": "frog",
+    "undercoverWord": "toad"
+  },
+  {
+    "civilianWord": "crow",
+    "undercoverWord": "raven"
+  },
+  {
+    "civilianWord": "teacher",
+    "undercoverWord": "student"
+  },
+  {
+    "civilianWord": "zebra",
+    "undercoverWord": "giraffe"
+  },
+  {
+    "civilianWord": "pillow",
+    "undercoverWord": "cushion"
+  },
+  {
+    "civilianWord": "egg",
+    "undercoverWord": "omelet"
+  },
+  {
+    "civilianWord": "morning",
+    "undercoverWord": "evening"
+  },
+  {
+    "civilianWord": "turtle",
+    "undercoverWord": "tortoise"
+  },
+  {
+    "civilianWord": "rocket",
+    "undercoverWord": "satellite"
+  },
+  {
+    "civilianWord": "castle",
+    "undercoverWord": "palace"
+  },
+  {
+    "civilianWord": "bean",
+    "undercoverWord": "pea"
+  },
+  {
+    "civilianWord": "actor",
+    "undercoverWord": "actress"
+  },
+  {
+    "civilianWord": "fan",
+    "undercoverWord": "ventilator"
+  },
+  {
+    "civilianWord": "bag",
+    "undercoverWord": "backpack"
+  },
+  {
+    "civilianWord": "king",
+    "undercoverWord": "queen"
+  },
+  {
+    "civilianWord": "award",
+    "undercoverWord": "prize"
+  },
+  {
+    "civilianWord": "hill",
+    "undercoverWord": "cliff"
+  },
+  {
+    "civilianWord": "spider",
+    "undercoverWord": "scorpion"
+  },
+  {
+    "civilianWord": "battery",
+    "undercoverWord": "charger"
+  },
+  {
+    "civilianWord": "river",
+    "undercoverWord": "lake"
+  },
+  {
+    "civilianWord": "music",
+    "undercoverWord": "song"
+  },
+  {
+    "civilianWord": "decade",
+    "undercoverWord": "century"
+  },
+  {
+    "civilianWord": "bread",
+    "undercoverWord": "cake"
+  },
+  {
+    "civilianWord": "ship",
+    "undercoverWord": "boat"
+  },
+  {
+    "civilianWord": "pen",
+    "undercoverWord": "pencil"
+  },
+  {
+    "civilianWord": "cup",
+    "undercoverWord": "mug"
+  },
+  {
+    "civilianWord": "mouse",
+    "undercoverWord": "touchpad"
+  },
+  {
+    "civilianWord": "glass",
+    "undercoverWord": "cup"
+  },
+  {
+    "civilianWord": "mountain",
+    "undercoverWord": "hill"
+  },
+  {
+    "civilianWord": "camera",
+    "undercoverWord": "video"
+  },
+  {
+    "civilianWord": "eagle",
+    "undercoverWord": "hawk"
+  },
+  {
+    "civilianWord": "desert",
+    "undercoverWord": "savanna"
+  },
+  {
+    "civilianWord": "sword",
+    "undercoverWord": "shield"
+  },
+  {
+    "civilianWord": "ship",
+    "undercoverWord": "submarine"
+  },
+  {
+    "civilianWord": "music",
+    "undercoverWord": "dance"
+  },
+  {
+    "civilianWord": "fish",
+    "undercoverWord": "shrimp"
+  },
+  {
+    "civilianWord": "printer",
+    "undercoverWord": "scanner"
+  },
+  {
+    "civilianWord": "piano",
+    "undercoverWord": "keyboard"
+  },
+  {
+    "civilianWord": "shirt",
+    "undercoverWord": "tshirt"
+  },
+  {
+    "civilianWord": "lion",
+    "undercoverWord": "tiger"
+  },
+  {
+    "civilianWord": "apple",
+    "undercoverWord": "pear"
+  },
+  {
+    "civilianWord": "engine",
+    "undercoverWord": "motor"
+  },
+  {
+    "civilianWord": "candle",
+    "undercoverWord": "match"
+  },
+  {
+    "civilianWord": "fish",
+    "undercoverWord": "whale"
+  },
+  {
+    "civilianWord": "bottle",
+    "undercoverWord": "jar"
+  },
+  {
+    "civilianWord": "onion",
+    "undercoverWord": "garlic"
+  },
+  {
+    "civilianWord": "forest",
+    "undercoverWord": "woods"
+  },
+  {
+    "civilianWord": "deer",
+    "undercoverWord": "moose"
+  },
+  {
+    "civilianWord": "carrot",
+    "undercoverWord": "beetroot"
+  },
+  {
+    "civilianWord": "plate",
+    "undercoverWord": "bowl"
+  },
+  {
+    "civilianWord": "wave",
+    "undercoverWord": "tide"
+  },
+  {
+    "civilianWord": "butterfly",
+    "undercoverWord": "moth"
+  },
+  {
+    "civilianWord": "coffee",
+    "undercoverWord": "tea"
+  },
+  {
+    "civilianWord": "arrow",
+    "undercoverWord": "bow"
+  },
+  {
+    "civilianWord": "beach",
+    "undercoverWord": "desert"
+  },
+  {
+    "civilianWord": "pigeon",
+    "undercoverWord": "sparrow"
+  },
+  {
+    "civilianWord": "camera",
+    "undercoverWord": "tripod"
+  },
+  {
+    "civilianWord": "spoon",
+    "undercoverWord": "ladle"
+  },
+  {
+    "civilianWord": "forest",
+    "undercoverWord": "jungle"
+  },
+  {
+    "civilianWord": "saturn",
+    "undercoverWord": "uranus"
+  },
+  {
+    "civilianWord": "road",
+    "undercoverWord": "highway"
+  },
+  {
+    "civilianWord": "egg",
+    "undercoverWord": "yolk"
+  },
+  {
+    "civilianWord": "ring",
+    "undercoverWord": "bracelet"
+  },
+  {
+    "civilianWord": "sun",
+    "undercoverWord": "moon"
+  },
+  {
+    "civilianWord": "school",
+    "undercoverWord": "college"
+  },
+  {
+    "civilianWord": "tablet",
+    "undercoverWord": "notebook"
+  },
+  {
+    "civilianWord": "map",
+    "undercoverWord": "globe"
+  },
+  {
+    "civilianWord": "pants",
+    "undercoverWord": "jeans"
+  },
+  {
+    "civilianWord": "fork",
+    "undercoverWord": "spork"
+  },
+  {
+    "civilianWord": "keyboard",
+    "undercoverWord": "joystick"
+  },
+  {
+    "civilianWord": "blanket",
+    "undercoverWord": "quilt"
+  },
+  {
+    "civilianWord": "lens",
+    "undercoverWord": "filter"
+  },
+  {
+    "civilianWord": "watch",
+    "undercoverWord": "clock"
+  },
+  {
+    "civilianWord": "fox",
+    "undercoverWord": "coyote"
+  },
+  {
+    "civilianWord": "road",
+    "undercoverWord": "street"
+  },
+  {
+    "civilianWord": "butter",
+    "undercoverWord": "cheese"
+  },
+  {
+    "civilianWord": "peach",
+    "undercoverWord": "plum"
+  },
+  {
+    "civilianWord": "hat",
+    "undercoverWord": "cap"
+  },
+  {
+    "civilianWord": "knife",
+    "undercoverWord": "scissors"
+  },
+  {
+    "civilianWord": "fridge",
+    "undercoverWord": "freezer"
+  },
+  {
+    "civilianWord": "rhino",
+    "undercoverWord": "buffalo"
+  },
+  {
+    "civilianWord": "train",
+    "undercoverWord": "bus"
+  },
+  {
+    "civilianWord": "earth",
+    "undercoverWord": "mars"
+  },
+  {
+    "civilianWord": "bear",
+    "undercoverWord": "wolf"
+  },
+  {
+    "civilianWord": "wind",
+    "undercoverWord": "breeze"
+  },
+  {
+    "civilianWord": "director",
+    "undercoverWord": "producer"
+  },
+  {
+    "civilianWord": "banana",
+    "undercoverWord": "mango"
+  },
+  {
+    "civilianWord": "apple",
+    "undercoverWord": "orange"
+  },
+  {
+    "civilianWord": "bread",
+    "undercoverWord": "biscuit"
+  },
+  {
+    "civilianWord": "pizza",
+    "undercoverWord": "burger"
+  },
+  {
+    "civilianWord": "phone",
+    "undercoverWord": "tablet"
+  },
+  {
+    "civilianWord": "swan",
+    "undercoverWord": "flamingo"
+  },
+  {
+    "civilianWord": "paper",
+    "undercoverWord": "pen"
+  },
+  {
+    "civilianWord": "card",
+    "undercoverWord": "dice"
+  },
+  {
+    "civilianWord": "cloud",
+    "undercoverWord": "fog"
+  },
+  {
+    "civilianWord": "island",
+    "undercoverWord": "peninsula"
+  },
+  {
+    "civilianWord": "leaf",
+    "undercoverWord": "flower"
+  },
+  {
+    "civilianWord": "knife",
+    "undercoverWord": "fork"
+  },
+  {
+    "civilianWord": "carpet",
+    "undercoverWord": "rug"
+  },
+  {
+    "civilianWord": "corn",
+    "undercoverWord": "wheat"
+  },
+  {
+    "civilianWord": "horse",
+    "undercoverWord": "cow"
+  },
+  {
+    "civilianWord": "car",
+    "undercoverWord": "bike"
+  },
+  {
+    "civilianWord": "coin",
+    "undercoverWord": "token"
+  },
+  {
+    "civilianWord": "rose",
+    "undercoverWord": "tulip"
+  },
+  {
+    "civilianWord": "river",
+    "undercoverWord": "ocean"
+  },
+  {
+    "civilianWord": "band",
+    "undercoverWord": "choir"
+  },
+  {
+    "civilianWord": "art",
+    "undercoverWord": "craft"
+  },
+  {
+    "civilianWord": "camel",
+    "undercoverWord": "donkey"
+  },
+  {
+    "civilianWord": "phone",
+    "undercoverWord": "radio"
+  },
+  {
+    "civilianWord": "spring",
+    "undercoverWord": "well"
+  },
+  {
+    "civilianWord": "cat",
+    "undercoverWord": "dog"
+  },
+  {
+    "civilianWord": "gun",
+    "undercoverWord": "rifle"
+  },
+  {
+    "civilianWord": "lamp",
+    "undercoverWord": "lantern"
+  },
+  {
+    "civilianWord": "snow",
+    "undercoverWord": "ice"
+  }
+]

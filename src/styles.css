@@ -1,0 +1,254 @@
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --ink-2: #334155;
+  --accent: #0ea5e9;
+  --accent-ink: #ffffff;
+  --error: #dc2626;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(2, 12, 27, 0.08);
+  --border: #e2e8f0;
+}
+
+/* Reset-ish */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App container */
+.app {
+  max-width: 760px;
+  margin: 32px auto;
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  margin: 0 0 12px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+section {
+  margin: 18px 0 24px;
+}
+
+/* Layout helpers */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row.space {
+  justify-content: space-between;
+}
+
+.row.gap {
+  gap: 10px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  outline: none;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+  border-radius: var(--radius);
+}
+
+/* Buttons */
+button {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  /* chip-like */
+  cursor: pointer;
+  transition: transform 0.02s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Cards / panels */
+.card {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* Text utils */
+.word {
+  color: var(--ink-2);
+}
+
+.hint {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.error {
+  color: var(--error);
+  margin-top: 6px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+/* Turn banner */
+.turn-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+}
+
+.turn-title {
+  font-size: 0.9rem;
+  color: #0369a1;
+}
+
+.turn-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.turn-remaining {
+  color: #0c4a6e;
+}
+
+/* Deck grid */
+.deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Individual card face (tappable) */
+.card-face {
+  height: 120px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #e2e8f0, #f8fafc);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.card-face.picked {
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+/* Round status list */
+.status-list {
+  display: grid;
+  gap: 8px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+
+.status-name {
+  font-weight: 600;
+}
+
+.status-sub {
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+
+.badge {
+  background: #0369a1;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+/* Small responsive touch-ups */
+@media (max-width: 420px) {
+  .app {
+    margin: 16px 12px;
+    padding: 16px;
+  }
+
+  .turn-name {
+    font-size: 1.05rem;
+  }
+
+  .deck {
+    grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+  }
+
+  .card-face {
+    height: 100px;
+  }
+}
