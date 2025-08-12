@@ -10,16 +10,17 @@ import RevealModal from './components/RevealModal';
 import RoundStatus from './components/RoundStatus';
 import GameOverBanner from './components/GameOverBanner';
 import type { Card, GameOverState, Player, RevealState, Role, WordSet } from './types';
+import DEFAULT_WORDS from "./data/defaultWords.json";
 
 // If you moved defaults to JSON, import it instead:
 // import DEFAULT_WORDS from './data/defaultWords.json';
-const DEFAULT_WORDS: WordSet[] = [
-  { civilianWord: 'apple', undercoverWord: 'orange' },
-  { civilianWord: 'cat', undercoverWord: 'dog' },
-  { civilianWord: 'sun', undercoverWord: 'moon' },
-  { civilianWord: 'river', undercoverWord: 'ocean' },
-  { civilianWord: 'pizza', undercoverWord: 'burger' }
-];
+// const DEFAULT_WORDS: WordSet[] = [
+//   { civilianWord: 'apple', undercoverWord: 'orange' },
+//   { civilianWord: 'cat', undercoverWord: 'dog' },
+//   { civilianWord: 'sun', undercoverWord: 'moon' },
+//   { civilianWord: 'river', undercoverWord: 'ocean' },
+//   { civilianWord: 'pizza', undercoverWord: 'burger' }
+// ];
 
 const STORAGE_KEYS = {
   words: 'uc_words',
