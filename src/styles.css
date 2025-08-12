@@ -252,3 +252,64 @@ button:disabled {
     height: 100px;
   }
 }
+
+/* Full-screen Game Over overlay with a subtle animated gradient */
+.gameover-wrap {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+}
+
+.gameover-wrap.fancy {
+  background: linear-gradient(135deg, rgba(2,6,23,0.88), rgba(15,23,42,0.88));
+}
+
+.gameover-panel {
+  width: min(560px, 94vw);
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(2,12,27,0.35);
+  text-align: center;
+}
+
+.gameover-title {
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+}
+
+.gameover-sub {
+  color: #334155;
+  font-size: 0.98rem;
+}
+
+/* lightweight confetti-ish shimmer */
+.confetti::before, .confetti::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0 20%, transparent 21%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10) 0 18%, transparent 19%),
+    radial-gradient(circle at 60% 20%, rgba(255,255,255,0.12) 0 12%, transparent 13%),
+    radial-gradient(circle at 35% 75%, rgba(255,255,255,0.10) 0 16%, transparent 17%);
+  pointer-events: none;
+  animation: floaty 6s linear infinite;
+  opacity: 0.5;
+}
+.confetti::after {
+  animation-duration: 9s;
+  opacity: 0.35;
+}
+
+@keyframes floaty {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}

@@ -12,16 +12,6 @@ import GameOverBanner from './components/GameOverBanner';
 import type { Card, GameOverState, Player, RevealState, Role, WordSet } from './types';
 import DEFAULT_WORDS from "./data/defaultWords.json";
 
-// If you moved defaults to JSON, import it instead:
-// import DEFAULT_WORDS from './data/defaultWords.json';
-// const DEFAULT_WORDS: WordSet[] = [
-//   { civilianWord: 'apple', undercoverWord: 'orange' },
-//   { civilianWord: 'cat', undercoverWord: 'dog' },
-//   { civilianWord: 'sun', undercoverWord: 'moon' },
-//   { civilianWord: 'river', undercoverWord: 'ocean' },
-//   { civilianWord: 'pizza', undercoverWord: 'burger' }
-// ];
-
 const STORAGE_KEYS = {
   words: 'uc_words',
   players: 'uc_players_v2'
@@ -199,12 +189,19 @@ export default function App() {
   // check end condition and open banner if triggered
   function maybeEndGame(deckNow: Card[], playersNow: Player[]) {
     const { aliveBad, aliveCiv } = computeAliveCounts(deckNow, playersNow);
+
+    // ✅ CIVILIANS WIN when no bad guys are alive
+    if (aliveBad === 0) {
+      setGameOver({ open: true, winner: 'CIVILIANS', aliveBad, aliveCiv });
+      return true;
+    }
+
+    // ✅ UNDERCOVER WIN when bad >= civs
     if (aliveBad >= aliveCiv) {
       setGameOver({ open: true, winner: 'UNDERCOVER', aliveBad, aliveCiv });
       return true;
     }
-    // If you want civilians auto-win when no bad guys remain, uncomment:
-    // if (aliveBad === 0) { setGameOver({ open: true, winner: 'CIVILIANS', aliveBad, aliveCiv }); return true; }
+
     return false;
   }
 
@@ -226,10 +223,8 @@ export default function App() {
     );
     setPlayers(updatedPlayers);
 
-    // ✅ ALWAYS open the modal after a pick,
-    // but control what it shows:
+    // Always open modal; hide role for Civ/Undercover, hide word for Mr. White
     if (card.role === 'MR_WHITE') {
-      // Show role, hide word
       setReveal({
         open: true,
         playerId: currentPlayer.id,
@@ -238,7 +233,6 @@ export default function App() {
         hideRole: false
       });
     } else {
-      // Hide role, show word
       setReveal({
         open: true,
         playerId: currentPlayer.id,
@@ -255,7 +249,7 @@ export default function App() {
     const nextIdx = nextEligibleIndex(players, (turnIndex + 1) % players.length);
     setTurnIndex(nextIdx);
 
-    // OPTIONAL: check end only when everyone picked or after eliminations
+    // Optional: if everyone picked or is eliminated, check for end
     // if (players.every(p => p.picked || p.eliminated)) {
     //   maybeEndGame(deck, players);
     // }
@@ -294,8 +288,8 @@ export default function App() {
       setPlayers(playersNext);
       setDeck(deckNext);
 
-      // ELIMINATION reveal: role ONLY (no word)
       if (roleToReveal) {
+        // Elimination reveal: role ONLY (no word)
         setReveal({
           open: true,
           playerId: id,
@@ -312,7 +306,7 @@ export default function App() {
         setTurnIndex(nextIdx);
       }
 
-      // Check win AFTER elimination
+      // ✅ Check win AFTER elimination (covers “all bad removed”)
       maybeEndGame(deckNext, playersNext);
     } else {
       // restore (house rule)
@@ -320,6 +314,8 @@ export default function App() {
         p.id === id ? { ...p, eliminated: false } : p
       );
       setPlayers(playersNext);
+      // Optionally re-check:
+      // maybeEndGame(deck, playersNext);
     }
   };
 

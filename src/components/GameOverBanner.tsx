@@ -1,6 +1,5 @@
 import type { GameOverState } from "../types";
 
-
 type Props = {
   state: GameOverState;
   onNewRound: () => void;
@@ -15,14 +14,18 @@ export default function GameOverBanner({ state, onNewRound, onBackToSetup }: Pro
       ? 'Game Over — Undercover Team Wins'
       : 'Game Over — Civilians Win';
 
+  const subtitle =
+    state.winner === 'UNDERCOVER'
+      ? `Alive: Bad = ${state.aliveBad}, Civilians = ${state.aliveCiv}`
+      : `All Undercover & Mr. White eliminated! Civilians = ${state.aliveCiv}`;
+
   return (
-    <div className="gameover-wrap">
-      <div className="gameover-banner">
-        <h2 style={{ marginTop: 0 }}>{title}</h2>
-        <div style={{ marginBottom: 12 }}>
-          Alive: Bad = <strong>{state.aliveBad}</strong>, Civilians = <strong>{state.aliveCiv}</strong>
-        </div>
-        <div className="row gap">
+    <div className="gameover-wrap fancy">
+      <div className="confetti" aria-hidden />
+      <div className="gameover-panel">
+        <h2 className="gameover-title">{title}</h2>
+        <div className="gameover-sub">{subtitle}</div>
+        <div className="row gap" style={{ marginTop: 14 }}>
           <button onClick={onBackToSetup}>Back to Setup</button>
           <button className="primary" onClick={onNewRound}>New Round</button>
         </div>
