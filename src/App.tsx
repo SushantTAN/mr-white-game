@@ -1,20 +1,27 @@
-import { useEffect, useMemo, useState } from 'react';
-import { load, save } from './utils/storage';
+import { useEffect, useMemo, useState } from "react";
+import { load, save } from "./utils/storage";
 
-import SettingsPanel from './components/SettingsPanel';
-import WordEditor from './components/WordEditor';
-import PlayersPanel from './components/PlayersPanel';
-import TurnBanner from './components/TurnBanner';
-import Deck from './components/Deck';
-import RevealModal from './components/RevealModal';
-import RoundStatus from './components/RoundStatus';
-import GameOverBanner from './components/GameOverBanner';
-import type { Card, GameOverState, Player, RevealState, Role, WordSet } from './types';
+import SettingsPanel from "./components/SettingsPanel";
+import WordEditor from "./components/WordEditor";
+import PlayersPanel from "./components/PlayersPanel";
+import TurnBanner from "./components/TurnBanner";
+import Deck from "./components/Deck";
+import RevealModal from "./components/RevealModal";
+import RoundStatus from "./components/RoundStatus";
+import GameOverBanner from "./components/GameOverBanner";
+import type {
+  Card,
+  GameOverState,
+  Player,
+  RevealState,
+  Role,
+  WordSet,
+} from "./types";
 import DEFAULT_WORDS from "./data/defaultWords.json";
 
 const STORAGE_KEYS = {
-  words: 'uc_words',
-  players: 'uc_players_v2'
+  words: "uc_words",
+  players: "uc_players_v2",
 };
 
 function shuffle<T>(arr: T[]): T[] {
@@ -26,17 +33,70 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/** Small helper to speak a line out loud (on supported browsers). */
+function speak(text: string) {
+  try {
+    const synth = (window as any).speechSynthesis as
+      | SpeechSynthesis
+      | undefined;
+    if (!synth) return;
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.rate = 1;
+    utter.pitch = 1;
+    utter.lang = navigator.language || "en-US";
+    // Optional: pick first matching voice for the language if available
+    const voices = synth.getVoices?.() || [];
+    const match = voices.find((v) =>
+      v.lang?.toLowerCase().startsWith((utter.lang || "en-US").toLowerCase())
+    );
+    if (match) utter.voice = match;
+    // Clear any queued utterances so this announcement plays immediately
+    try {
+      synth.cancel();
+    } catch {}
+    synth.speak(utter);
+  } catch {
+    // fail silently if speech is blocked/unavailable
+  }
+}
+
+function roleLabel(r?: Role) {
+  return r === "MR_WHITE"
+    ? "Mr White"
+    : r === "UNDERCOVER"
+    ? "Undercover"
+    : "Civilian";
+}
+
+const clickAudio = new Audio("/sounds/click.mp3"); // Path to file in public/
+const winnerAudio = new Audio("/sounds/won.mp3"); // Path to file in public/
+
+function playSound(audio: HTMLAudioElement) {
+  audio.pause();
+  audio.currentTime = 0; // Reset to start
+  audio.play().catch((err) => {
+    console.error("Error playing sound:", err);
+  });
+}
+
+function recommendUndercover(n: number): number {
+  if (n <= 5) return 1;
+  if (n <= 8) return 2;
+  if (n <= 12) return 3;
+  return Math.max(3, Math.floor(n / 4));
+}
+
 export default function App() {
   // words
-  const [words, setWords] = useState<WordSet[]>(
-    () => load<WordSet[]>(STORAGE_KEYS.words, DEFAULT_WORDS)
+  const [words, setWords] = useState<WordSet[]>(() =>
+    load<WordSet[]>(STORAGE_KEYS.words, DEFAULT_WORDS)
   );
   const [wordsInput, setWordsInput] = useState(JSON.stringify(words, null, 2));
-  const [wordsError, setWordsError] = useState('');
+  const [wordsError, setWordsError] = useState("");
 
   // players (persisted)
-  const [players, setPlayers] = useState<Player[]>(
-    () => load<Player[]>(STORAGE_KEYS.players, [])
+  const [players, setPlayers] = useState<Player[]>(() =>
+    load<Player[]>(STORAGE_KEYS.players, [])
   );
 
   // settings
@@ -44,16 +104,16 @@ export default function App() {
   const [includeMrWhite, setIncludeMrWhite] = useState<boolean>(false);
 
   // runtime
-  const [tab, setTab] = useState<'setup' | 'play'>('setup');
+  const [tab, setTab] = useState<"setup" | "play">("setup");
   const [currentSet, setCurrentSet] = useState<WordSet | null>(null);
   const [deck, setDeck] = useState<Card[]>([]);
   const [turnIndex, setTurnIndex] = useState<number>(0);
   const [reveal, setReveal] = useState<RevealState>({ open: false });
   const [gameOver, setGameOver] = useState<GameOverState>({
     open: false,
-    winner: 'UNDERCOVER',
+    winner: "UNDERCOVER",
     aliveBad: 0,
-    aliveCiv: 0
+    aliveCiv: 0,
   });
 
   // persist words/players
@@ -62,6 +122,35 @@ export default function App() {
     setWordsInput(JSON.stringify(words, null, 2));
   }, [words]);
   useEffect(() => save(STORAGE_KEYS.players, players), [players]);
+
+  useEffect(() => {
+    // clamp undercoverCount to valid range when players or MrWhite changes
+    const maxUndercover = Math.max(
+      1,
+      players.length - (includeMrWhite ? 2 : 1)
+    );
+    if (undercoverCount > maxUndercover) {
+      setUndercoverCount(maxUndercover);
+    }
+    if (undercoverCount < 1 && maxUndercover >= 1) {
+      setUndercoverCount(1);
+    }
+  }, [players.length, includeMrWhite]); // eslint-disable-line
+
+  useEffect(() => {
+    // auto-pick a recommended number if current is empty/invalid during setup
+    const maxUndercover = Math.max(
+      1,
+      players.length - (includeMrWhite ? 2 : 1)
+    );
+    if (
+      tab === "setup" &&
+      (undercoverCount < 1 || undercoverCount > maxUndercover)
+    ) {
+      const rec = recommendUndercover(players.length);
+      setUndercoverCount(Math.min(Math.max(1, rec), maxUndercover));
+    }
+  }, [players.length, includeMrWhite, tab]); // eslint-disable-line
 
   // computed
   const totalPlayers = players.length;
@@ -83,29 +172,30 @@ export default function App() {
   );
 
   const currentPlayer: Player | null =
-    tab === 'play' && players.length > 0 ? players[turnIndex] ?? null : null;
+    tab === "play" && players.length > 0 ? players[turnIndex] ?? null : null;
 
   // words actions
   const onSaveWords = () => {
-    setWordsError('');
+    setWordsError("");
     try {
       const parsed = JSON.parse(wordsInput) as WordSet[];
       const ok =
         Array.isArray(parsed) &&
         parsed.every(
           (w) =>
-            typeof w?.civilianWord === 'string' &&
-            typeof w?.undercoverWord === 'string'
+            typeof w?.civilianWord === "string" &&
+            typeof w?.undercoverWord === "string"
         );
-      if (!ok) throw new Error('Must be [{"civilianWord","undercoverWord"}, ...].');
+      if (!ok)
+        throw new Error('Must be [{"civilianWord","undercoverWord"}, ...].');
       setWords(parsed);
     } catch (e) {
-      setWordsError((e as Error).message || 'Invalid JSON');
+      setWordsError((e as Error).message || "Invalid JSON");
     }
   };
   const onLoadDefaults = () => {
     setWords(DEFAULT_WORDS);
-    setWordsError('');
+    setWordsError("");
   };
 
   // players panel actions
@@ -113,7 +203,12 @@ export default function App() {
     const n = players.length + 1;
     setPlayers([
       ...players,
-      { id: crypto.randomUUID(), name: `Player ${n}`, eliminated: false, picked: false }
+      {
+        id: crypto.randomUUID(),
+        name: `Player ${n}`,
+        eliminated: false,
+        picked: false,
+      },
     ]);
   };
   const updatePlayerName = (id: string, name: string) => {
@@ -132,29 +227,31 @@ export default function App() {
     setCurrentSet(set);
 
     const roles: Role[] = [
-      ...Array(undercoverCount).fill('UNDERCOVER'),
-      ...(includeMrWhite ? ['MR_WHITE'] : [])
+      ...Array(undercoverCount).fill("UNDERCOVER"),
+      ...(includeMrWhite ? ["MR_WHITE"] : []),
     ];
     const civs = players.length - roles.length;
     if (civs < 1) {
-      alert('Need at least 1 Civilian.');
+      alert("Need at least 1 Civilian.");
       return;
     }
-    roles.push(...Array(civs).fill('CIVILIAN'));
+    roles.push(...Array(civs).fill("CIVILIAN"));
 
     const shuffledRoles = shuffle(roles);
     const newDeck: Card[] = shuffledRoles.map((r) => ({
       id: crypto.randomUUID(),
       role: r,
-      picked: false
+      picked: false,
     }));
     setDeck(newDeck);
 
-    setPlayers((prev) => prev.map((p) => ({ ...p, picked: false, eliminated: false })));
+    setPlayers((prev) =>
+      prev.map((p) => ({ ...p, picked: false, eliminated: false }))
+    );
     setTurnIndex(nextEligibleIndex(players, 0));
     setReveal({ open: false });
     setGameOver((g) => ({ ...g, open: false }));
-    setTab('play');
+    setTab("play");
   };
 
   // helper: find next player index who is not eliminated and not picked
@@ -180,7 +277,7 @@ export default function App() {
 
     for (const card of deckNow) {
       if (!isAlive(card.holderId)) continue;
-      if (card.role === 'UNDERCOVER' || card.role === 'MR_WHITE') aliveBad++;
+      if (card.role === "UNDERCOVER" || card.role === "MR_WHITE") aliveBad++;
       else aliveCiv++;
     }
     return { aliveBad, aliveCiv };
@@ -190,15 +287,22 @@ export default function App() {
   function maybeEndGame(deckNow: Card[], playersNow: Player[]) {
     const { aliveBad, aliveCiv } = computeAliveCounts(deckNow, playersNow);
 
-    // ✅ CIVILIANS WIN when no bad guys are alive
+    // Civilians win when all bad guys are gone
     if (aliveBad === 0) {
+      // ensure modal isn't covering the banner
+      setReveal({ open: false });
       setGameOver({ open: true, winner: 'CIVILIANS', aliveBad, aliveCiv });
+      playSound(winnerAudio);
+      speak('Civilians win');
       return true;
     }
 
-    // ✅ UNDERCOVER WIN when bad >= civs
+    // Undercover side wins when bad >= civs
     if (aliveBad >= aliveCiv) {
+      setReveal({ open: false });
       setGameOver({ open: true, winner: 'UNDERCOVER', aliveBad, aliveCiv });
+      playSound(winnerAudio);
+      speak('Undercover team wins');
       return true;
     }
 
@@ -214,6 +318,8 @@ export default function App() {
     const card = deck[index];
     if (!card || card.picked) return;
 
+    playSound(clickAudio);
+
     const nextDeck = deck.slice();
     nextDeck[index] = { ...card, picked: true, holderId: currentPlayer.id };
     setDeck(nextDeck);
@@ -223,14 +329,14 @@ export default function App() {
     );
     setPlayers(updatedPlayers);
 
-    // Always open modal; hide role for Civ/Undercover, hide word for Mr. White
-    if (card.role === 'MR_WHITE') {
+    // Show modal for everyone; hide role for Civ/Undercover, hide word for Mr. White
+    if (card.role === "MR_WHITE") {
       setReveal({
         open: true,
         playerId: currentPlayer.id,
         role: card.role,
         hideWord: true,
-        hideRole: false
+        hideRole: false,
       });
     } else {
       setReveal({
@@ -238,7 +344,7 @@ export default function App() {
         playerId: currentPlayer.id,
         role: card.role,
         hideWord: false,
-        hideRole: true
+        hideRole: true,
       });
     }
   };
@@ -246,16 +352,14 @@ export default function App() {
   // after hiding, move to next eligible player
   const onHideAndPass = () => {
     setReveal({ open: false });
-    const nextIdx = nextEligibleIndex(players, (turnIndex + 1) % players.length);
+    const nextIdx = nextEligibleIndex(
+      players,
+      (turnIndex + 1) % players.length
+    );
     setTurnIndex(nextIdx);
-
-    // Optional: if everyone picked or is eliminated, check for end
-    // if (players.every(p => p.picked || p.eliminated)) {
-    //   maybeEndGame(deck, players);
-    // }
   };
 
-  // eliminate/restore (elimination reveals ROLE ONLY and checks win)
+  // eliminate/restore (elimination reveals ROLE ONLY, speaks it, and checks win)
   const toggleElimination = (id: string) => {
     if (gameOver.open) return;
 
@@ -268,7 +372,9 @@ export default function App() {
       let playersNext = players.slice();
 
       if (!target.picked) {
-        const avail = deckNext.map((c, i) => ({ c, i })).filter((x) => !x.c.picked);
+        const avail = deckNext
+          .map((c, i) => ({ c, i }))
+          .filter((x) => !x.c.picked);
         if (avail.length === 0) return;
         const choice = avail[(Math.random() * avail.length) | 0];
         const card = choice.c;
@@ -288,25 +394,34 @@ export default function App() {
       setPlayers(playersNext);
       setDeck(deckNext);
 
+      // Elimination reveal: role ONLY (no word) + SPEAK it
       if (roleToReveal) {
-        // Elimination reveal: role ONLY (no word)
+        const eliminatedName =
+          playersNext.find((p) => p.id === id)?.name ?? "Player";
+        const line = `${eliminatedName} is ${roleLabel(roleToReveal)}`;
+        // show modal
         setReveal({
           open: true,
           playerId: id,
           role: roleToReveal,
           hideWord: true,
-          hideRole: false
+          hideRole: false,
         });
+        // speak it
+        speak(line);
       }
 
       // advance turn if we eliminated the current player
       const current = players.find((p) => p.id === id);
-      if (current && current.id === (players[turnIndex]?.id ?? '')) {
-        const nextIdx = nextEligibleIndex(playersNext, (turnIndex + 1) % playersNext.length);
+      if (current && current.id === (players[turnIndex]?.id ?? "")) {
+        const nextIdx = nextEligibleIndex(
+          playersNext,
+          (turnIndex + 1) % playersNext.length
+        );
         setTurnIndex(nextIdx);
       }
 
-      // ✅ Check win AFTER elimination (covers “all bad removed”)
+      // Check win AFTER elimination
       maybeEndGame(deckNext, playersNext);
     } else {
       // restore (house rule)
@@ -314,13 +429,11 @@ export default function App() {
         p.id === id ? { ...p, eliminated: false } : p
       );
       setPlayers(playersNext);
-      // Optionally re-check:
-      // maybeEndGame(deck, playersNext);
     }
   };
 
   const resetToSetup = () => {
-    setTab('setup');
+    setTab("setup");
     setCurrentSet(null);
     setDeck([]);
     setReveal({ open: false });
@@ -332,16 +445,20 @@ export default function App() {
 
   const revealPlayerName =
     reveal.open && reveal.playerId
-      ? players.find((p) => p.id === reveal.playerId)?.name ?? ''
-      : '';
+      ? players.find((p) => p.id === reveal.playerId)?.name ?? ""
+      : "";
 
-  const canPick = !!currentPlayer && !currentPlayer.eliminated && !currentPlayer.picked && !gameOver.open;
+  const canPick =
+    !!currentPlayer &&
+    !currentPlayer.eliminated &&
+    !currentPlayer.picked &&
+    !gameOver.open;
 
   return (
     <div className="app">
       <h1>Undercover (Offline PWA)</h1>
 
-      {tab === 'setup' && (
+      {tab === "setup" && (
         <>
           <PlayersPanel
             players={players}
@@ -356,10 +473,8 @@ export default function App() {
             undercoverCount={undercoverCount}
             includeMrWhite={includeMrWhite}
             minPlayersNeeded={minPlayersNeeded}
-            onChange={(patch) => {
-              if (patch.undercoverCount !== undefined) setUndercoverCount(patch.undercoverCount);
-              if (patch.includeMrWhite !== undefined) setIncludeMrWhite(patch.includeMrWhite);
-            }}
+            onChangeUndercover={setUndercoverCount}
+            onToggleMrWhite={setIncludeMrWhite}
           />
 
           <WordEditor
@@ -371,13 +486,17 @@ export default function App() {
           />
 
           <div className="divider" />
-          <button className="primary" disabled={!setupValid} onClick={buildDeckAndStart}>
+          <button
+            className="primary"
+            disabled={!setupValid}
+            onClick={buildDeckAndStart}
+          >
             Start Game (Build Deck)
           </button>
         </>
       )}
 
-      {tab === 'play' && (
+      {tab === "play" && (
         <>
           <TurnBanner current={currentPlayer} remainingCards={remainingCards} />
 

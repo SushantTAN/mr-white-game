@@ -25,16 +25,19 @@ export default function RevealModal({ reveal, currentSet, playerName, onClose }:
     return 'Mr. White: No word';
   })();
 
+   if (!reveal.open) return null;
+
   return (
     <div
-      style={{
+       style={{
         position: 'fixed',
         inset: 0,
         background: 'rgba(15,23,42,0.55)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 16
+        padding: 16,
+        zIndex: 40, // 👈 ensure modal < game over overlay
       }}
     >
       <div

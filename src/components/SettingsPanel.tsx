@@ -1,42 +1,72 @@
+import { useMemo } from "react";
+import ChipToggleGroup from "./ChipToggleGroup";
+
 type Props = {
   undercoverCount: number;
   includeMrWhite: boolean;
-  minPlayersNeeded: number;
   totalPlayers: number;
-  onChange: (patch: Partial<Pick<Props, 'undercoverCount' | 'includeMrWhite'>>) => void;
+  minPlayersNeeded: number;
+  onChangeUndercover: (n: number) => void;
+  onToggleMrWhite: (v: boolean) => void;
 };
 
 export default function SettingsPanel({
   undercoverCount,
   includeMrWhite,
-  minPlayersNeeded,
   totalPlayers,
-  onChange
+  minPlayersNeeded,
+  onChangeUndercover,
+  onToggleMrWhite
 }: Props) {
+  // build chip options: 1..maxUndercover, always leaving at least 1 civilian
+  const maxUndercover = Math.max(1, totalPlayers - (includeMrWhite ? 2 : 1));
+  const options = useMemo(() => {
+    const arr = Array.from({ length: maxUndercover }, (_, i) => i + 1);
+    // mark a recommended option based on player count
+    const recommended = recommendUndercover(totalPlayers);
+    return arr.map((n) => ({ value: n, recommended: n === Math.min(recommended, maxUndercover) }));
+  }, [totalPlayers, maxUndercover]);
+
   return (
     <section>
       <h2>Game Roles</h2>
-      <div className="hint" style={{ marginBottom: 8 }}>
-        Players added: <strong>{totalPlayers}</strong> (min needed: <strong>{minPlayersNeeded}</strong>)
+
+      <div className="card">
+        <div className="row space" style={{ marginBottom: 10 }}>
+          <div className="hint">
+            Players: <strong>{totalPlayers}</strong> (min needed: <strong>{minPlayersNeeded}</strong>)
+          </div>
+
+          <label className="toggle">
+            <input
+              type="checkbox"
+              checked={includeMrWhite}
+              onChange={(e) => onToggleMrWhite(e.target.checked)}
+            />
+            <span className="toggle-track" />
+            <span className="toggle-label">Mr. White</span>
+          </label>
+        </div>
+
+        <div style={{ marginBottom: 6, fontWeight: 600 }}>Undercover Count</div>
+        <ChipToggleGroup
+          value={Math.min(undercoverCount || 1, maxUndercover)}
+          options={options}
+          onChange={onChangeUndercover}
+          ariaLabel="Select number of Undercover players"
+        />
+        <div className="hint" style={{ marginTop: 8 }}>
+          Tip: ★ is our recommendation for {totalPlayers || 0} players.
+        </div>
       </div>
-      <label className="row">
-        <span>Undercover Count</span>
-        <input
-          type="number"
-          min={1}
-          max={Math.max(1, totalPlayers - 1)}
-          value={undercoverCount}
-          onChange={(e) => onChange({ undercoverCount: Number(e.target.value) })}
-        />
-      </label>
-      <label className="row">
-        <span>Include Mr. White</span>
-        <input
-          type="checkbox"
-          checked={includeMrWhite}
-          onChange={(e) => onChange({ includeMrWhite: e.target.checked })}
-        />
-      </label>
     </section>
   );
+}
+
+// simple recommendation curve
+function recommendUndercover(n: number): number {
+  if (n <= 5) return 1;
+  if (n <= 8) return 2;
+  if (n <= 12) return 3;
+  return Math.max(3, Math.floor(n / 4));
 }
