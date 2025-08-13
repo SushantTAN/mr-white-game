@@ -1,315 +1,350 @@
+/* ===========================
+   PREMIUM + MERGED GLOBAL CSS
+   Keeps original class names
+   =========================== */
+
+/* ---- Design tokens ---- */
 :root {
-  --bg: #f1f5f9;
-  --card: #ffffff;
+  --bg: #eef2f7;
+  --bg-2: #f3f6fb;
+  --surface: rgba(255,255,255,0.7);
   --ink: #0f172a;
   --ink-2: #334155;
-  --accent: #0ea5e9;
-  --accent-ink: #ffffff;
-  --error: #dc2626;
-  --radius: 12px;
-  --shadow: 0 10px 30px rgba(2, 12, 27, 0.08);
-  --border: #e2e8f0;
+  --ink-3: #64748b;
+
+  --brand-1: #7c3aed; /* violet */
+  --brand-2: #06b6d4; /* cyan */
+  --accent: #22c55e;
+
+  --card: #ffffff;
+  --border: rgba(2,6,23,.08);
+  --radius: 16px;
+  --shadow: 0 24px 50px rgba(2,12,27,.12);
+
+  --focus: 0 0 0 3px rgba(124,58,237,.25),
+           0 0 0 1px rgba(124,58,237,.6);
 }
 
-/* Reset-ish */
-* {
-  box-sizing: border-box;
+/* ---- Reset-ish ---- */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(124,58,237,.25), transparent 40%),
+    radial-gradient(1200px 600px at 110% 110%, rgba(6,182,212,.25), transparent 40%),
+    var(--bg);
+  color:var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* App container */
-.app {
-  max-width: 760px;
-  margin: 32px auto;
-  background: var(--card);
-  padding: 20px;
-  border-radius: var(--radius);
+/* ---- App shell ---- */
+.app{
+  max-width: 920px;
+  margin: 34px auto;
+  padding: 22px;
+  border-radius: calc(var(--radius) + 2px);
+  background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
+  backdrop-filter: blur(10px);
+  /* border: 1px solid var(--border); */
   box-shadow: var(--shadow);
 }
+/* @media (prefers-color-scheme: dark){
+  .app{
+    background: linear-gradient(180deg, rgba(15,23,42,.55), rgba(2,6,23,.45));
+    color:#e5e7eb;
+  }
+} */
 
-h1 {
-  margin: 0 0 12px;
+h1{
+  margin:0 0 16px;
+  font-size: 1.85rem;
+  line-height:1.2;
+  letter-spacing:.2px;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color: transparent;
 }
-
-h2 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
+h2{
+  margin:0 0 10px;
+  font-size:1.15rem;
+  color: var(--ink);
 }
+/* @media (prefers-color-scheme: dark){
+  h2{ color:#e2e8f0; }
+} */
+section{ margin: 20px 0 26px; }
 
-section {
-  margin: 18px 0 24px;
-}
+/* ---- Layout utilities ---- */
+.row{display:flex;align-items:center;gap:10px;}
+.row.space{justify-content:space-between}
+.row.gap{gap:12px}
+.divider{ height:1px; background: var(--border); margin:18px 0 }
 
-/* Layout helpers */
-.row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.row.space {
-  justify-content: space-between;
-}
-
-.row.gap {
-  gap: 10px;
-}
-
-/* Inputs */
+/* ---- Inputs & Textareas ---- */
+.input,
 input[type="text"],
 input[type="number"],
-textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  outline: none;
-  background: #fff;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 140px;
-  border-radius: var(--radius);
-}
-
-/* Buttons */
-button {
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  background: #fff;
+textarea{
+  width:100%;
+  appearance: none;
+  padding:12px 14px;
+  border:1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
   color: var(--ink);
-  border-radius: 999px;
-  /* chip-like */
-  cursor: pointer;
-  transition: transform 0.02s ease;
+  outline:none;
+  transition: box-shadow .2s ease, border-color .2s ease, background .2s ease, transform .06s ease;
 }
-
-button:hover {
-  transform: translateY(-1px);
+textarea{ resize:vertical; min-height: 140px; }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.input:focus, input:focus, textarea:focus{
+  box-shadow: var(--focus);
+  border-color: rgba(124,58,237,.55);
+  background: rgba(255,255,255,.95);
 }
+/* @media (prefers-color-scheme: dark){
+  .input, input[type="text"], input[type="number"], textarea{
+    background: rgba(2,6,23,.6);
+    color:#e5e7eb;
+  }
+  .input:focus, input:focus, textarea:focus{
+    background: rgba(2,6,23,.8);
+  }
+} */
 
-button:active {
-  transform: translateY(0);
+/* ---- Buttons ---- */
+button{
+  position:relative;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,250,252,.7));
+  color: var(--ink);
+  border-radius: 12px;
+  cursor:pointer;
+  transition: transform .08s ease, box-shadow .2s ease, background .25s ease, border-color .25s ease;
 }
-
-button.primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-ink);
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Cards / panels */
-.card {
-  background: #f8fafc;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px;
-  margin-bottom: 10px;
-}
-
-/* Text utils */
-.word {
-  color: var(--ink-2);
-}
-
-.hint {
-  color: var(--ink-2);
-  font-size: 0.9rem;
-  margin-top: 6px;
-}
-
-.error {
-  color: var(--error);
-  margin-top: 6px;
-}
-
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: 16px 0;
-}
-
-/* Turn banner */
-.turn-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #e0f2fe;
-  border: 1px solid #bae6fd;
-  padding: 12px 14px;
-  border-radius: var(--radius);
-}
-
-.turn-title {
-  font-size: 0.9rem;
-  color: #0369a1;
-}
-
-.turn-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.turn-remaining {
-  color: #0c4a6e;
-}
-
-/* Deck grid */
-.deck {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* Individual card face (tappable) */
-.card-face {
-  height: 120px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, #e2e8f0, #f8fafc);
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-}
-
-.card-face.picked {
-  background: #e2e8f0;
-  color: #64748b;
-}
-
-/* Round status list */
-.status-list {
-  display: grid;
-  gap: 8px;
-}
-
-.status-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f8fafc;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 10px 12px;
-}
-
-.status-name {
-  font-weight: 600;
-}
-
-.status-sub {
-  color: var(--ink-2);
-  font-size: 0.9rem;
-}
-
-.badge {
-  background: #0369a1;
+button:hover{ transform: translateY(-1px); }
+button:active{ transform: translateY(0); }
+button:focus-visible{ box-shadow: var(--focus); }
+button.primary{
+  border-color: transparent;
   color: #fff;
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  border-radius: 999px;
-  margin-left: 6px;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  box-shadow: 0 8px 24px rgba(124,58,237,.25);
+}
+button.primary:hover{ box-shadow: 0 10px 28px rgba(6,182,212,.28); }
+button.ghost{ background: transparent; border-color: var(--border); }
+button:disabled{ opacity:.6; cursor:not-allowed; }
+button.danger{
+  color:#fff; border-color: transparent;
+  background: linear-gradient(180deg, #ef4444, #dc2626);
+  box-shadow: 0 10px 22px rgba(239,68,68,.18);
 }
 
-/* Small responsive touch-ups */
-@media (max-width: 420px) {
-  .app {
-    margin: 16px 12px;
-    padding: 16px;
+/* Icon buttons (for ❌ etc.) */
+.icon-btn{
+  width: 36px; height: 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,250,252,.7));
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .2s ease, background .25s ease;
+  font-weight: 700;
+}
+.icon-btn:hover{ transform: translateY(-1px); }
+.icon-btn:active{ transform: translateY(0); }
+.icon-btn.danger{ color: #ef4444; border-color: rgba(239,68,68,.25); }
+.icon-btn.danger:hover{ box-shadow: 0 10px 22px rgba(239,68,68,.18); }
+
+/* ---- Cards / Panels ---- */
+.card{
+  background: linear-gradient(180deg, rgba(248,250,252,.9), rgba(255,255,255,.95));
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:14px;
+  box-shadow: 0 12px 30px rgba(2,12,27,.12);
+}
+/* @media (prefers-color-scheme: dark){
+  .card{
+    background: linear-gradient(180deg, rgba(15,23,42,.85), rgba(2,6,23,.85));
   }
+} */
+.word{ color: var(--ink-2); }
+.hint{ color: var(--ink-3); font-size:.92rem; margin-top:6px }
+.error{ color:#ef4444; margin-top:8px }
 
-  .turn-name {
-    font-size: 1.05rem;
-  }
-
-  .deck {
-    grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
-  }
-
-  .card-face {
-    height: 100px;
-  }
-}
-
-/* Full-screen Game Over overlay with a subtle animated gradient */
-.gameover-wrap {
-  position: fixed;
-  inset: 0;
-  background: rgba(15,23,42,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  z-index: 50;
-}
-
-.gameover-wrap.fancy {
-  background: linear-gradient(135deg, rgba(2,6,23,0.88), rgba(15,23,42,0.88));
-}
-
-.gameover-panel {
-  width: min(560px, 94vw);
-  background: linear-gradient(180deg, #f8fafc, #ffffff);
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 24px 60px rgba(2,12,27,0.35);
-  text-align: center;
-}
-
-.gameover-title {
-  margin: 0 0 6px;
-  font-size: 1.35rem;
-}
-
-.gameover-sub {
-  color: #334155;
-  font-size: 0.98rem;
-}
-
-/* lightweight confetti-ish shimmer */
-.confetti::before, .confetti::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+/* ---- Turn banner ---- */
+.turn-banner{
+  display:flex;justify-content:space-between;align-items:center;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px 14px;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.10) 0 20%, transparent 21%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.10) 0 18%, transparent 19%),
-    radial-gradient(circle at 60% 20%, rgba(255,255,255,0.12) 0 12%, transparent 13%),
-    radial-gradient(circle at 35% 75%, rgba(255,255,255,0.10) 0 16%, transparent 17%);
-  pointer-events: none;
-  animation: floaty 6s linear infinite;
-  opacity: 0.5;
+    linear-gradient(180deg, rgba(59,130,246,.10), rgba(59,130,246,.06)),
+    linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,250,252,.75));
 }
-.confetti::after {
-  animation-duration: 9s;
-  opacity: 0.35;
+.turn-title{ font-size:.95rem; color:#0369a1 }
+.turn-name{ font-size:1.25rem; font-weight:800; letter-spacing:.2px }
+.turn-remaining{ color:#0c4a6e }
+
+/* ---- Deck grid & card tiles ---- */
+.deck{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap:14px;
+  margin-top:12px;
+}
+.card-face{
+  height:130px;
+  border-radius:16px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(60% 40% at 50% 0%, rgba(255,255,255,.9), rgba(248,250,252,.7)),
+    linear-gradient(180deg, #e3e8ef, #f8fafc);
+  font-weight:800;
+  letter-spacing:.3px;
+  display:inline-flex;align-items:center;justify-content:center;
+  user-select:none;
+  perspective: 600px;
+  box-shadow: 0 10px 24px rgba(2,12,27,.10);
+  transition: transform .18s ease, box-shadow .25s ease, background .25s ease;
+}
+.card-face:hover{ transform: translateY(-3px) }
+.card-face:active{ transform: translateY(0) scale(.98) }
+.card-face.picked{
+  background: linear-gradient(180deg, #e5e7eb, #e2e8f0);
+  color:#64748b;
+  box-shadow:none;
 }
 
-@keyframes floaty {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0px); }
+/* ---- Round status list (players) ---- */
+.status-list{ display:grid; gap:10px }
+.status-item{
+  display:flex;justify-content:space-between;align-items:center;
+  background: linear-gradient(180deg, rgba(248,250,252,.9), rgba(255,255,255,.95));
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:10px 12px;
+  box-shadow: 0 8px 22px rgba(2,12,27,.10);
+}
+.status-name{ font-weight:700 }
+.status-sub{ color:var(--ink-3); font-size:.92rem }
+.badge{
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  color:#fff; font-size:.75rem; padding:2px 8px; border-radius:999px; margin-left:6px
+}
+
+/* ---- Toggle (Mr. White switch) ---- */
+.toggle{
+  display:inline-flex; align-items:center; gap:10px; cursor:pointer;
+  user-select:none;
+}
+.toggle input{ display:none; }
+.toggle-track{
+  --w: 46px; --h: 26px;
+  position: relative; width: var(--w); height: var(--h);
+  background: #cbd5e1; border-radius: 999px;
+  transition: background .2s;
+}
+.toggle input:checked + .toggle-track{ background: #7c3aed; }
+.toggle-track::after{
+  content:""; position:absolute; top:3px; left:3px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: #ffffff; transition: transform .2s ease;
+  box-shadow: 0 2px 8px rgba(2,12,27,.2);
+}
+.toggle input:checked + .toggle-track::after{ transform: translateX(20px); }
+.toggle-label{ color: var(--ink-2); }
+
+/* ---- Chip "radio" group (Undercover count) ---- */
+.chips{ display: flex; flex-wrap: wrap; gap: 8px; }
+.chip{
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(248,250,252,.8));
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, background .25s ease, border-color .25s ease;
+  font-weight: 700; letter-spacing:.2px;
+}
+.chip:hover{ transform: translateY(-1px); }
+.chip.active{
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  box-shadow: 0 10px 24px rgba(124,58,237,.25);
+}
+.chip-badge{
+  position: absolute; top: -6px; right: -6px;
+  background: var(--accent); color:#fff; font-size:.7rem; padding: 2px 6px;
+  border-radius: 999px; box-shadow: 0 4px 10px rgba(2,12,27,.2);
+}
+
+/* ---- Reveal modal overlay (if you switch from inline to class) ---- */
+.modal-overlay{
+  position: fixed; inset: 0; padding: 16px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(15,23,42,0.55);
+  z-index: 40; /* lower than gameover */
+}
+
+/* ---- Game Over overlay (if not using inline styles) ---- */
+.gameover-wrap{
+  position: fixed; inset:0; z-index: 60;
+  display:flex; align-items:center; justify-content:center; padding:20px;
+  background:
+    radial-gradient(1000px 600px at 10% 10%, rgba(124,58,237,.25), transparent 40%),
+    radial-gradient(900px 520px at 90% 90%, rgba(6,182,212,.25), transparent 45%),
+    rgba(2,6,23,.72);
+  backdrop-filter: blur(6px);
+}
+.gameover-panel{
+  width: min(620px, 96vw);
+  border-radius: 18px;
+  padding: 26px 22px;
+  text-align:center;
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(248,250,252,.92));
+  border: 1px solid var(--border);
+  box-shadow: 0 28px 80px rgba(2,12,27,.45);
+}
+/* @media (prefers-color-scheme: dark){
+  .gameover-panel{
+    background: linear-gradient(180deg, rgba(15,23,42,.92), rgba(2,6,23,.9));
+    color:#e5e7eb;
+  }
+} */
+.gameover-title{ margin:0 0 8px; font-size:1.6rem; letter-spacing:.2px }
+.gameover-sub{ color: #64748b; font-size: 1rem }
+
+/* ---- Decorative shimmer layer (used by .confetti) ---- */
+.confetti::before,.confetti::after{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.55;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,.10) 0 20%, transparent 21%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,.10) 0 18%, transparent 19%),
+    radial-gradient(circle at 60% 20%, rgba(255,255,255,.12) 0 12%, transparent 13%),
+    radial-gradient(circle at 35% 75%, rgba(255,255,255,.10) 0 16%, transparent 17%);
+  animation: floaty 8s linear infinite;
+}
+.confetti::after{ animation-duration: 12s; opacity:.35 }
+
+/* ---- Responsive tweaks ---- */
+@media (max-width: 420px){
+  .app{ margin: 0px; padding:16px }
+  .deck{ grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap:10px }
+  .card-face{ height:112px }
+}
+
+/* ---- Animations ---- */
+@keyframes floaty{
+  0%{ transform: translateY(0) }
+  50%{ transform: translateY(-10px) }
+  100%{ transform: translateY(0) }
 }
