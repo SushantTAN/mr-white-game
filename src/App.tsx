@@ -225,7 +225,7 @@ export default function App() {
 
     const set = words[(Math.random() * words.length) | 0];
     setCurrentSet(set);
-
+    randomizePlayers();
     const roles: Role[] = [
       ...Array(undercoverCount).fill("UNDERCOVER"),
       ...(includeMrWhite ? ["MR_WHITE"] : []),
@@ -348,6 +348,24 @@ export default function App() {
       });
     }
   };
+
+  const randomizePlayers = () =>{
+    let order = new Set<number>();
+    
+    const tempPlayers = [];
+    const max = totalPlayers - 1;
+    const min = 0;
+
+    for(let i = 0; i < totalPlayers; ++i){
+      let ind = Math.floor(Math.random() * (max - min + 1) + min);;
+      while (order.has(ind)){
+        ind = Math.floor(Math.random() * (max - min + 1) + min);;
+      }
+      order.add(ind);
+      tempPlayers.push(players[ind]);
+    }
+    setPlayers(tempPlayers);
+  }
 
   // after hiding, move to next eligible player
   const onHideAndPass = () => {
