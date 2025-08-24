@@ -356,19 +356,15 @@ export default function App() {
     const max = totalPlayers - 1;
     const min = 0;
 
-    console.log(players);
     for(let i = 0; i < totalPlayers; ++i){
       let ind = Math.floor(Math.random() * (max - min + 1) + min);;
       while (order.has(ind)){
         ind = Math.floor(Math.random() * (max - min + 1) + min);;
       }
-      console.log("ind=", ind);
-      console.log("player=", players[ind]);
       order.add(ind);
       tempPlayers.push(players[ind]);
     }
     setPlayers(tempPlayers);
-      console.log(players);
   }
 
   // after hiding, move to next eligible player
