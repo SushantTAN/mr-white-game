@@ -47,7 +47,7 @@ body{
   padding: 22px;
   border-radius: calc(var(--radius) + 2px);
   background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
   /* border: 1px solid var(--border); */
   box-shadow: var(--shadow);
 }
