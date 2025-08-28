@@ -298,25 +298,25 @@ export default function App() {
 
     // Civilians win when all bad guys are gone
     if (aliveBad === 0) {
-      // ensure modal isn't covering the banner
       setReveal({ open: false });
-      setGameOver({ open: true, winner: 'CIVILIANS', aliveBad, aliveCiv });
+      setGameOver({ open: true, winner: "CIVILIANS", aliveBad, aliveCiv });
       playSound(winnerAudio);
-      speak('Civilians win');
+      speak("Civilians win");
       return true;
     }
 
-    // Undercover side wins when bad >= civs
-    if (aliveBad >= aliveCiv) {
+    // Undercover win only when bad > civs  (🔁 changed from >= to >)
+    if (aliveBad > aliveCiv) {
       setReveal({ open: false });
-      setGameOver({ open: true, winner: 'UNDERCOVER', aliveBad, aliveCiv });
+      setGameOver({ open: true, winner: "UNDERCOVER", aliveBad, aliveCiv });
       playSound(winnerAudio);
-      speak('Undercover team wins');
+      speak("Undercover team wins");
       return true;
     }
 
     return false;
   }
+
 
   // card pick handler (by current player only)
   const onPickCard = (index: number) => {
