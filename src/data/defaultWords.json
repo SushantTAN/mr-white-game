@@ -1,814 +1,954 @@
 [
   {
-    "civilianWord": "milk",
-    "undercoverWord": "juice"
+    "word1": "ladder",
+    "word2": "rope"
   },
   {
-    "civilianWord": "snake",
-    "undercoverWord": "lizard"
+    "word1": "buttermilk",
+    "word2": "yogurt"
   },
   {
-    "civilianWord": "exam",
-    "undercoverWord": "test"
+    "word1": "bhatti",
+    "word2": "hotel"
   },
   {
-    "civilianWord": "crab",
-    "undercoverWord": "lobster"
+    "word1": "peach",
+    "word2": "plum"
   },
   {
-    "civilianWord": "shark",
-    "undercoverWord": "dolphin"
+    "word1": "blueberry",
+    "word2": "strawberry"
   },
   {
-    "civilianWord": "shirt",
-    "undercoverWord": "blouse"
+    "word1": "ladle",
+    "word2": "spoon"
   },
   {
-    "civilianWord": "seal",
-    "undercoverWord": "otter"
+    "word1": "ipv4",
+    "word2": "ipv6"
   },
   {
-    "civilianWord": "ape",
-    "undercoverWord": "gorilla"
+    "word1": "asynchronous",
+    "word2": "synchronous"
   },
   {
-    "civilianWord": "pepper",
-    "undercoverWord": "chili"
+    "word1": "game",
+    "word2": "puzzle"
   },
   {
-    "civilianWord": "ball",
-    "undercoverWord": "bat"
+    "word1": "cap",
+    "word2": "hat"
   },
   {
-    "civilianWord": "potato",
-    "undercoverWord": "tomato"
+    "word1": "pen",
+    "word2": "pencil"
   },
   {
-    "civilianWord": "umbrella",
-    "undercoverWord": "parasol"
+    "word1": "carpet",
+    "word2": "rug"
   },
   {
-    "civilianWord": "park",
-    "undercoverWord": "garden"
+    "word1": "brick",
+    "word2": "stone"
   },
   {
-    "civilianWord": "mirror",
-    "undercoverWord": "window"
+    "word1": "daadhi",
+    "word2": "jungaa"
   },
   {
-    "civilianWord": "sand",
-    "undercoverWord": "soil"
+    "word1": "bridge",
+    "word2": "riverbank"
   },
   {
-    "civilianWord": "dawn",
-    "undercoverWord": "dusk"
+    "word1": "guitar",
+    "word2": "violin"
   },
   {
-    "civilianWord": "ink",
-    "undercoverWord": "paint"
+    "word1": "bakhra",
+    "word2": "ghoda"
   },
   {
-    "civilianWord": "day",
-    "undercoverWord": "night"
+    "word1": "chisel",
+    "word2": "saw"
   },
   {
-    "civilianWord": "river",
-    "undercoverWord": "stream"
+    "word1": "ban",
+    "word2": "tarai"
   },
   {
-    "civilianWord": "school",
-    "undercoverWord": "university"
+    "word1": "madal",
+    "word2": "topi"
   },
   {
-    "civilianWord": "paper",
-    "undercoverWord": "cardboard"
+    "word1": "sse",
+    "word2": "websocket"
   },
   {
-    "civilianWord": "kangaroo",
-    "undercoverWord": "koala"
+    "word1": "api",
+    "word2": "sdk"
   },
   {
-    "civilianWord": "class",
-    "undercoverWord": "lecture"
+    "word1": "docker",
+    "word2": "kubernetes"
   },
   {
-    "civilianWord": "glove",
-    "undercoverWord": "mitten"
+    "word1": "blocking",
+    "word2": "nonblocking"
   },
   {
-    "civilianWord": "hour",
-    "undercoverWord": "week"
+    "word1": "doctor",
+    "word2": "nurse"
   },
   {
-    "civilianWord": "heater",
-    "undercoverWord": "radiator"
+    "word1": "gamcha",
+    "word2": "topi"
   },
   {
-    "civilianWord": "game",
-    "undercoverWord": "puzzle"
+    "word1": "glacier",
+    "word2": "volcano"
   },
   {
-    "civilianWord": "plate",
-    "undercoverWord": "tray"
+    "word1": "format",
+    "word2": "lint"
   },
   {
-    "civilianWord": "ant",
-    "undercoverWord": "bee"
+    "word1": "butter",
+    "word2": "cheese"
   },
   {
-    "civilianWord": "planet",
-    "undercoverWord": "comet"
+    "word1": "microservices",
+    "word2": "monolith"
   },
   {
-    "civilianWord": "storm",
-    "undercoverWord": "cyclone"
+    "word1": "forest",
+    "word2": "jungle"
   },
   {
-    "civilianWord": "wallet",
-    "undercoverWord": "purse"
+    "word1": "ban",
+    "word2": "bazaar"
   },
   {
-    "civilianWord": "brush",
-    "undercoverWord": "roller"
+    "word1": "badminton",
+    "word2": "tennis"
   },
   {
-    "civilianWord": "asteroid",
-    "undercoverWord": "meteor"
+    "word1": "commit",
+    "word2": "push"
   },
   {
-    "civilianWord": "lamp",
-    "undercoverWord": "torch"
+    "word1": "chyang",
+    "word2": "gundruk"
   },
   {
-    "civilianWord": "paint",
-    "undercoverWord": "ink"
+    "word1": "ghoda",
+    "word2": "hatti"
   },
   {
-    "civilianWord": "autumn",
-    "undercoverWord": "fall"
+    "word1": "dance",
+    "word2": "music"
   },
   {
-    "civilianWord": "tree",
-    "undercoverWord": "bush"
+    "word1": "beach",
+    "word2": "cliff"
   },
   {
-    "civilianWord": "lemon",
-    "undercoverWord": "lime"
+    "word1": "backpack",
+    "word2": "suitcase"
   },
   {
-    "civilianWord": "computer",
-    "undercoverWord": "laptop"
+    "word1": "bowl",
+    "word2": "plate"
   },
   {
-    "civilianWord": "second",
-    "undercoverWord": "minute"
+    "word1": "get",
+    "word2": "post"
   },
   {
-    "civilianWord": "stove",
-    "undercoverWord": "grill"
+    "word1": "dancer",
+    "word2": "singer"
   },
   {
-    "civilianWord": "street",
-    "undercoverWord": "avenue"
+    "word1": "door",
+    "word2": "gate"
   },
   {
-    "civilianWord": "plane",
-    "undercoverWord": "helicopter"
+    "word1": "city",
+    "word2": "village"
   },
   {
-    "civilianWord": "song",
-    "undercoverWord": "melody"
+    "word1": "gaai",
+    "word2": "hatti"
   },
   {
-    "civilianWord": "oven",
-    "undercoverWord": "microwave"
+    "word1": "runner",
+    "word2": "swimmer"
   },
   {
-    "civilianWord": "monkey",
-    "undercoverWord": "chimpanzee"
+    "word1": "daura",
+    "word2": "madal"
   },
   {
-    "civilianWord": "chicken",
-    "undercoverWord": "turkey"
+    "word1": "dahi",
+    "word2": "momo"
   },
   {
-    "civilianWord": "doctor",
-    "undercoverWord": "nurse"
+    "word1": "lamp",
+    "word2": "lantern"
   },
   {
-    "civilianWord": "medal",
-    "undercoverWord": "trophy"
+    "word1": "kettle",
+    "word2": "saucepan"
   },
   {
-    "civilianWord": "shoes",
-    "undercoverWord": "sandals"
+    "word1": "class",
+    "word2": "object"
   },
   {
-    "civilianWord": "film",
-    "undercoverWord": "movie"
+    "word1": "immutable",
+    "word2": "mutable"
   },
   {
-    "civilianWord": "elephant",
-    "undercoverWord": "hippo"
+    "word1": "summer",
+    "word2": "winter"
   },
   {
-    "civilianWord": "duck",
-    "undercoverWord": "goose"
+    "word1": "bato",
+    "word2": "galli"
   },
   {
-    "civilianWord": "soap",
-    "undercoverWord": "shampoo"
+    "word1": "ghar",
+    "word2": "mandir"
   },
   {
-    "civilianWord": "drum",
-    "undercoverWord": "flute"
+    "word1": "cache",
+    "word2": "database"
   },
   {
-    "civilianWord": "book",
-    "undercoverWord": "magazine"
+    "word1": "airport",
+    "word2": "harbor"
   },
   {
-    "civilianWord": "grape",
-    "undercoverWord": "berry"
+    "word1": "kagaz",
+    "word2": "rang"
   },
   {
-    "civilianWord": "owl",
-    "undercoverWord": "bat"
+    "word1": "bhaat",
+    "word2": "dahi"
   },
   {
-    "civilianWord": "rabbit",
-    "undercoverWord": "hare"
+    "word1": "rollup",
+    "word2": "webpack"
   },
   {
-    "civilianWord": "bucket",
-    "undercoverWord": "basin"
+    "word1": "chautari",
+    "word2": "gaun"
   },
   {
-    "civilianWord": "chair",
-    "undercoverWord": "sofa"
+    "word1": "bike",
+    "word2": "car"
   },
   {
-    "civilianWord": "month",
-    "undercoverWord": "year"
+    "word1": "blanket",
+    "word2": "pillow"
   },
   {
-    "civilianWord": "noon",
-    "undercoverWord": "midnight"
+    "word1": "baseball",
+    "word2": "hockey"
   },
   {
-    "civilianWord": "snow",
-    "undercoverWord": "rain"
+    "word1": "chili",
+    "word2": "pepper"
   },
   {
-    "civilianWord": "tank",
-    "undercoverWord": "jeep"
+    "word1": "brownie",
+    "word2": "cookie"
   },
   {
-    "civilianWord": "venus",
-    "undercoverWord": "jupiter"
+    "word1": "author",
+    "word2": "editor"
   },
   {
-    "civilianWord": "neptune",
-    "undercoverWord": "pluto"
+    "word1": "egg",
+    "word2": "shell"
   },
   {
-    "civilianWord": "stone",
-    "undercoverWord": "rock"
+    "word1": "purse",
+    "word2": "wallet"
   },
   {
-    "civilianWord": "key",
-    "undercoverWord": "lock"
+    "word1": "latency",
+    "word2": "throughput"
   },
   {
-    "civilianWord": "lightning",
-    "undercoverWord": "thunder"
+    "word1": "camera",
+    "word2": "tripod"
   },
   {
-    "civilianWord": "torch",
-    "undercoverWord": "flashlight"
+    "word1": "student",
+    "word2": "teacher"
   },
   {
-    "civilianWord": "galaxy",
-    "undercoverWord": "universe"
+    "word1": "farmer",
+    "word2": "fisherman"
   },
   {
-    "civilianWord": "bridge",
-    "undercoverWord": "tunnel"
+    "word1": "ful",
+    "word2": "patra"
   },
   {
-    "civilianWord": "rain",
-    "undercoverWord": "hail"
+    "word1": "bush",
+    "word2": "tree"
   },
   {
-    "civilianWord": "penguin",
-    "undercoverWord": "seagull"
+    "word1": "bhalu",
+    "word2": "ghoda"
   },
   {
-    "civilianWord": "mouse",
-    "undercoverWord": "keyboard"
+    "word1": "integration",
+    "word2": "unit"
   },
   {
-    "civilianWord": "current",
-    "undercoverWord": "flow"
+    "word1": "highway",
+    "word2": "tunnel"
   },
   {
-    "civilianWord": "rice",
-    "undercoverWord": "barley"
+    "word1": "frog",
+    "word2": "toad"
   },
   {
-    "civilianWord": "guitar",
-    "undercoverWord": "violin"
+    "word1": "apple",
+    "word2": "orange"
   },
   {
-    "civilianWord": "star",
-    "undercoverWord": "planet"
+    "word1": "dumpling",
+    "word2": "noodle"
   },
   {
-    "civilianWord": "knife",
-    "undercoverWord": "dagger"
+    "word1": "compass",
+    "word2": "map"
   },
   {
-    "civilianWord": "sun",
-    "undercoverWord": "star"
+    "word1": "cabbage",
+    "word2": "cauliflower"
   },
   {
-    "civilianWord": "salt",
-    "undercoverWord": "sugar"
+    "word1": "sand",
+    "word2": "soil"
   },
   {
-    "civilianWord": "winter",
-    "undercoverWord": "summer"
+    "word1": "ban",
+    "word2": "sahar"
   },
   {
-    "civilianWord": "sock",
-    "undercoverWord": "stocking"
+    "word1": "jutta",
+    "word2": "namlo"
   },
   {
-    "civilianWord": "sky",
-    "undercoverWord": "cloud"
+    "word1": "bhalu",
+    "word2": "gaai"
   },
   {
-    "civilianWord": "peacock",
-    "undercoverWord": "parrot"
+    "word1": "bus",
+    "word2": "tram"
   },
   {
-    "civilianWord": "television",
-    "undercoverWord": "monitor"
+    "word1": "biralo",
+    "word2": "kukkur"
   },
   {
-    "civilianWord": "frog",
-    "undercoverWord": "toad"
+    "word1": "dhal",
+    "word2": "selroti"
   },
   {
-    "civilianWord": "crow",
-    "undercoverWord": "raven"
+    "word1": "almond",
+    "word2": "peanut"
   },
   {
-    "civilianWord": "teacher",
-    "undercoverWord": "student"
+    "word1": "array",
+    "word2": "linkedlist"
   },
   {
-    "civilianWord": "zebra",
-    "undercoverWord": "giraffe"
+    "word1": "dahi",
+    "word2": "selroti"
   },
   {
-    "civilianWord": "pillow",
-    "undercoverWord": "cushion"
+    "word1": "nadi",
+    "word2": "pokhari"
   },
   {
-    "civilianWord": "egg",
-    "undercoverWord": "omelet"
+    "word1": "lake",
+    "word2": "ocean"
   },
   {
-    "civilianWord": "morning",
-    "undercoverWord": "evening"
+    "word1": "chiura",
+    "word2": "gundruk"
   },
   {
-    "civilianWord": "turtle",
-    "undercoverWord": "tortoise"
+    "word1": "island",
+    "word2": "peninsula"
   },
   {
-    "civilianWord": "rocket",
-    "undercoverWord": "satellite"
+    "word1": "chyang",
+    "word2": "raksi"
   },
   {
-    "civilianWord": "castle",
-    "undercoverWord": "palace"
+    "word1": "chyang",
+    "word2": "selroti"
   },
   {
-    "civilianWord": "bean",
-    "undercoverWord": "pea"
+    "word1": "rabbit",
+    "word2": "tortoise"
   },
   {
-    "civilianWord": "actor",
-    "undercoverWord": "actress"
+    "word1": "ship",
+    "word2": "submarine"
   },
   {
-    "civilianWord": "fan",
-    "undercoverWord": "ventilator"
+    "word1": "highway",
+    "word2": "road"
   },
   {
-    "civilianWord": "bag",
-    "undercoverWord": "backpack"
+    "word1": "banana",
+    "word2": "mango"
   },
   {
-    "civilianWord": "king",
-    "undercoverWord": "queen"
+    "word1": "loop",
+    "word2": "recursion"
   },
   {
-    "civilianWord": "award",
-    "undercoverWord": "prize"
+    "word1": "implementation",
+    "word2": "interface"
   },
   {
-    "civilianWord": "hill",
-    "undercoverWord": "cliff"
+    "word1": "chiura",
+    "word2": "dahi"
   },
   {
-    "civilianWord": "spider",
-    "undercoverWord": "scorpion"
+    "word1": "kitchen",
+    "word2": "pantry"
   },
   {
-    "civilianWord": "battery",
-    "undercoverWord": "charger"
+    "word1": "cloudfront",
+    "word2": "s3"
   },
   {
-    "civilianWord": "river",
-    "undercoverWord": "lake"
+    "word1": "cursor",
+    "word2": "pagination"
   },
   {
-    "civilianWord": "music",
-    "undercoverWord": "song"
+    "word1": "jutta",
+    "word2": "madal"
   },
   {
-    "civilianWord": "decade",
-    "undercoverWord": "century"
+    "word1": "bhaat",
+    "word2": "gheu"
   },
   {
-    "civilianWord": "bread",
-    "undercoverWord": "cake"
+    "word1": "rain",
+    "word2": "snow"
   },
   {
-    "civilianWord": "ship",
-    "undercoverWord": "boat"
+    "word1": "private",
+    "word2": "public"
   },
   {
-    "civilianWord": "pen",
-    "undercoverWord": "pencil"
+    "word1": "bread",
+    "word2": "cake"
   },
   {
-    "civilianWord": "cup",
-    "undercoverWord": "mug"
+    "word1": "blinds",
+    "word2": "curtain"
   },
   {
-    "civilianWord": "mouse",
-    "undercoverWord": "touchpad"
+    "word1": "conductor",
+    "word2": "driver"
   },
   {
-    "civilianWord": "glass",
-    "undercoverWord": "cup"
+    "word1": "bagedi",
+    "word2": "goru"
   },
   {
-    "civilianWord": "mountain",
-    "undercoverWord": "hill"
+    "word1": "csr",
+    "word2": "ssg"
   },
   {
-    "civilianWord": "camera",
-    "undercoverWord": "video"
+    "word1": "battery",
+    "word2": "charger"
   },
   {
-    "civilianWord": "eagle",
-    "undercoverWord": "hawk"
+    "word1": "chautari",
+    "word2": "mandir"
   },
   {
-    "civilianWord": "desert",
-    "undercoverWord": "savanna"
+    "word1": "aakash",
+    "word2": "badal"
   },
   {
-    "civilianWord": "sword",
-    "undercoverWord": "shield"
+    "word1": "baker",
+    "word2": "butcher"
   },
   {
-    "civilianWord": "ship",
-    "undercoverWord": "submarine"
+    "word1": "consumer",
+    "word2": "producer"
   },
   {
-    "civilianWord": "music",
-    "undercoverWord": "dance"
+    "word1": "lion",
+    "word2": "tiger"
   },
   {
-    "civilianWord": "fish",
-    "undercoverWord": "shrimp"
+    "word1": "king",
+    "word2": "queen"
   },
   {
-    "civilianWord": "printer",
-    "undercoverWord": "scanner"
+    "word1": "book",
+    "word2": "magazine"
   },
   {
-    "civilianWord": "piano",
-    "undercoverWord": "keyboard"
+    "word1": "basin",
+    "word2": "bucket"
   },
   {
-    "civilianWord": "shirt",
-    "undercoverWord": "tshirt"
+    "word1": "sahar",
+    "word2": "tarai"
   },
   {
-    "civilianWord": "lion",
-    "undercoverWord": "tiger"
+    "word1": "gadha",
+    "word2": "ghoda"
   },
   {
-    "civilianWord": "apple",
-    "undercoverWord": "pear"
+    "word1": "basuri",
+    "word2": "khukuri"
   },
   {
-    "civilianWord": "engine",
-    "undercoverWord": "motor"
+    "word1": "ghaadi",
+    "word2": "ghanti"
   },
   {
-    "civilianWord": "candle",
-    "undercoverWord": "match"
+    "word1": "failover",
+    "word2": "readreplica"
   },
   {
-    "civilianWord": "fish",
-    "undercoverWord": "whale"
+    "word1": "drums",
+    "word2": "piano"
   },
   {
-    "civilianWord": "bottle",
-    "undercoverWord": "jar"
+    "word1": "desert",
+    "word2": "savanna"
   },
   {
-    "civilianWord": "onion",
-    "undercoverWord": "garlic"
+    "word1": "ban",
+    "word2": "ghar"
   },
   {
-    "civilianWord": "forest",
-    "undercoverWord": "woods"
+    "word1": "gaai",
+    "word2": "goru"
   },
   {
-    "civilianWord": "deer",
-    "undercoverWord": "moose"
+    "word1": "chautari",
+    "word2": "sahar"
   },
   {
-    "civilianWord": "carrot",
-    "undercoverWord": "beetroot"
+    "word1": "gateway",
+    "word2": "loadbalancer"
   },
   {
-    "civilianWord": "plate",
-    "undercoverWord": "bowl"
+    "word1": "cloud",
+    "word2": "fog"
   },
   {
-    "civilianWord": "wave",
-    "undercoverWord": "tide"
+    "word1": "evening",
+    "word2": "morning"
   },
   {
-    "civilianWord": "butterfly",
-    "undercoverWord": "moth"
+    "word1": "gloves",
+    "word2": "helmet"
   },
   {
-    "civilianWord": "coffee",
-    "undercoverWord": "tea"
+    "word1": "tcp",
+    "word2": "udp"
   },
   {
-    "civilianWord": "arrow",
-    "undercoverWord": "bow"
+    "word1": "mountain",
+    "word2": "valley"
   },
   {
-    "civilianWord": "beach",
-    "undercoverWord": "desert"
+    "word1": "cricket",
+    "word2": "football"
   },
   {
-    "civilianWord": "pigeon",
-    "undercoverWord": "sparrow"
+    "word1": "dahi",
+    "word2": "raksi"
   },
   {
-    "civilianWord": "camera",
-    "undercoverWord": "tripod"
+    "word1": "doko",
+    "word2": "namlo"
   },
   {
-    "civilianWord": "spoon",
-    "undercoverWord": "ladle"
+    "word1": "basuri",
+    "word2": "madal"
   },
   {
-    "civilianWord": "forest",
-    "undercoverWord": "jungle"
+    "word1": "client",
+    "word2": "server"
   },
   {
-    "civilianWord": "saturn",
-    "undercoverWord": "uranus"
+    "word1": "dahi",
+    "word2": "gheu"
   },
   {
-    "civilianWord": "road",
-    "undercoverWord": "highway"
+    "word1": "nosql",
+    "word2": "sql"
   },
   {
-    "civilianWord": "egg",
-    "undercoverWord": "yolk"
+    "word1": "pilot",
+    "word2": "sailor"
   },
   {
-    "civilianWord": "ring",
-    "undercoverWord": "bracelet"
+    "word1": "biralo",
+    "word2": "hatti"
   },
   {
-    "civilianWord": "sun",
-    "undercoverWord": "moon"
+    "word1": "ghar",
+    "word2": "khet"
   },
   {
-    "civilianWord": "school",
-    "undercoverWord": "college"
+    "word1": "debug",
+    "word2": "trace"
   },
   {
-    "civilianWord": "tablet",
-    "undercoverWord": "notebook"
+    "word1": "gaidaa",
+    "word2": "hatti"
   },
   {
-    "civilianWord": "map",
-    "undercoverWord": "globe"
+    "word1": "chiura",
+    "word2": "raksi"
   },
   {
-    "civilianWord": "pants",
-    "undercoverWord": "jeans"
+    "word1": "namlo",
+    "word2": "topi"
   },
   {
-    "civilianWord": "fork",
-    "undercoverWord": "spork"
+    "word1": "garlic",
+    "word2": "onion"
   },
   {
-    "civilianWord": "keyboard",
-    "undercoverWord": "joystick"
+    "word1": "gundruk",
+    "word2": "raksi"
   },
   {
-    "civilianWord": "blanket",
-    "undercoverWord": "quilt"
+    "word1": "pahad",
+    "word2": "tarai"
   },
   {
-    "civilianWord": "lens",
-    "undercoverWord": "filter"
+    "word1": "chyang",
+    "word2": "gheu"
   },
   {
-    "civilianWord": "watch",
-    "undercoverWord": "clock"
+    "word1": "basuri",
+    "word2": "suruwal"
   },
   {
-    "civilianWord": "fox",
-    "undercoverWord": "coyote"
+    "word1": "bluegreen",
+    "word2": "canary"
   },
   {
-    "civilianWord": "road",
-    "undercoverWord": "street"
+    "word1": "stadium",
+    "word2": "theater"
   },
   {
-    "civilianWord": "butter",
-    "undercoverWord": "cheese"
+    "word1": "inheritance",
+    "word2": "polymorphism"
   },
   {
-    "civilianWord": "peach",
-    "undercoverWord": "plum"
+    "word1": "html",
+    "word2": "markdown"
   },
   {
-    "civilianWord": "hat",
-    "undercoverWord": "cap"
+    "word1": "cookie",
+    "word2": "session"
   },
   {
-    "civilianWord": "knife",
-    "undercoverWord": "scissors"
+    "word1": "khet",
+    "word2": "tarai"
   },
   {
-    "civilianWord": "fridge",
-    "undercoverWord": "freezer"
+    "word1": "hotfix",
+    "word2": "rollback"
   },
   {
-    "civilianWord": "rhino",
-    "undercoverWord": "buffalo"
+    "word1": "notebook",
+    "word2": "sketchbook"
   },
   {
-    "civilianWord": "train",
-    "undercoverWord": "bus"
+    "word1": "ban",
+    "word2": "khet"
   },
   {
-    "civilianWord": "earth",
-    "undercoverWord": "mars"
+    "word1": "bhaat",
+    "word2": "momo"
   },
   {
-    "civilianWord": "bear",
-    "undercoverWord": "wolf"
+    "word1": "bhaat",
+    "word2": "chyang"
   },
   {
-    "civilianWord": "wind",
-    "undercoverWord": "breeze"
+    "word1": "kalam",
+    "word2": "pustak"
   },
   {
-    "civilianWord": "director",
-    "undercoverWord": "producer"
+    "word1": "harvester",
+    "word2": "tractor"
   },
   {
-    "civilianWord": "banana",
-    "undercoverWord": "mango"
+    "word1": "harvest",
+    "word2": "plough"
   },
   {
-    "civilianWord": "apple",
-    "undercoverWord": "orange"
+    "word1": "backend",
+    "word2": "frontend"
   },
   {
-    "civilianWord": "bread",
-    "undercoverWord": "biscuit"
+    "word1": "compiletime",
+    "word2": "runtime"
   },
   {
-    "civilianWord": "pizza",
-    "undercoverWord": "burger"
+    "word1": "gaun",
+    "word2": "tarai"
   },
   {
-    "civilianWord": "phone",
-    "undercoverWord": "tablet"
+    "word1": "boots",
+    "word2": "socks"
   },
   {
-    "civilianWord": "swan",
-    "undercoverWord": "flamingo"
+    "word1": "coffee",
+    "word2": "tea"
   },
   {
-    "civilianWord": "paper",
-    "undercoverWord": "pen"
+    "word1": "gallery",
+    "word2": "museum"
   },
   {
-    "civilianWord": "card",
-    "undercoverWord": "dice"
+    "word1": "bagedi",
+    "word2": "kukkur"
   },
   {
-    "civilianWord": "cloud",
-    "undercoverWord": "fog"
+    "word1": "oauth",
+    "word2": "openid"
   },
   {
-    "civilianWord": "island",
-    "undercoverWord": "peninsula"
+    "word1": "school",
+    "word2": "university"
   },
   {
-    "civilianWord": "leaf",
-    "undercoverWord": "flower"
+    "word1": "fork",
+    "word2": "knife"
   },
   {
-    "civilianWord": "knife",
-    "undercoverWord": "fork"
+    "word1": "nail",
+    "word2": "screw"
   },
   {
-    "civilianWord": "carpet",
-    "undercoverWord": "rug"
+    "word1": "biralo",
+    "word2": "goru"
   },
   {
-    "civilianWord": "corn",
-    "undercoverWord": "wheat"
+    "word1": "branch",
+    "word2": "merge"
   },
   {
-    "civilianWord": "horse",
-    "undercoverWord": "cow"
+    "word1": "gaun",
+    "word2": "sahar"
   },
   {
-    "civilianWord": "car",
-    "undercoverWord": "bike"
+    "word1": "chautari",
+    "word2": "ghar"
   },
   {
-    "civilianWord": "coin",
-    "undercoverWord": "token"
+    "word1": "heap",
+    "word2": "stackframe"
   },
   {
-    "civilianWord": "rose",
-    "undercoverWord": "tulip"
+    "word1": "mirror",
+    "word2": "window"
   },
   {
-    "civilianWord": "river",
-    "undercoverWord": "ocean"
+    "word1": "armchair",
+    "word2": "sofa"
   },
   {
-    "civilianWord": "band",
-    "undercoverWord": "choir"
+    "word1": "gaidaa",
+    "word2": "goru"
   },
   {
-    "civilianWord": "art",
-    "undercoverWord": "craft"
+    "word1": "foreignkey",
+    "word2": "primarykey"
   },
   {
-    "civilianWord": "camel",
-    "undercoverWord": "donkey"
+    "word1": "jhinga",
+    "word2": "machha"
   },
   {
-    "civilianWord": "phone",
-    "undercoverWord": "radio"
+    "word1": "calendar",
+    "word2": "clock"
   },
   {
-    "civilianWord": "spring",
-    "undercoverWord": "well"
+    "word1": "cup",
+    "word2": "mug"
   },
   {
-    "civilianWord": "cat",
-    "undercoverWord": "dog"
+    "word1": "graphql",
+    "word2": "rest"
   },
   {
-    "civilianWord": "gun",
-    "undercoverWord": "rifle"
+    "word1": "rose",
+    "word2": "tulip"
   },
   {
-    "civilianWord": "lamp",
-    "undercoverWord": "lantern"
+    "word1": "gaai",
+    "word2": "kukkur"
   },
   {
-    "civilianWord": "snow",
-    "undercoverWord": "ice"
+    "word1": "doko",
+    "word2": "gagri"
+  },
+  {
+    "word1": "candle",
+    "word2": "matchstick"
+  },
+  {
+    "word1": "seed",
+    "word2": "sprout"
+  },
+  {
+    "word1": "beetroot",
+    "word2": "carrot"
+  },
+  {
+    "word1": "lettuce",
+    "word2": "spinach"
+  },
+  {
+    "word1": "dhal",
+    "word2": "momo"
+  },
+  {
+    "word1": "belt",
+    "word2": "suspenders"
+  },
+  {
+    "word1": "hammer",
+    "word2": "wrench"
+  },
+  {
+    "word1": "index",
+    "word2": "partition"
+  },
+  {
+    "word1": "bus",
+    "word2": "train"
+  },
+  {
+    "word1": "bakhra",
+    "word2": "bhalu"
+  },
+  {
+    "word1": "jti",
+    "word2": "jwt"
+  },
+  {
+    "word1": "lemon",
+    "word2": "lime"
+  },
+  {
+    "word1": "spa",
+    "word2": "ssr"
+  },
+  {
+    "word1": "raincoat",
+    "word2": "umbrella"
+  },
+  {
+    "word1": "bhalu",
+    "word2": "kukkur"
+  },
+  {
+    "word1": "queue",
+    "word2": "stack"
+  },
+  {
+    "word1": "pnpm",
+    "word2": "yarn"
+  },
+  {
+    "word1": "river",
+    "word2": "stream"
+  },
+  {
+    "word1": "painter",
+    "word2": "sculptor"
+  },
+  {
+    "word1": "bazaar",
+    "word2": "tarai"
+  },
+  {
+    "word1": "anda",
+    "word2": "bhaat"
+  },
+  {
+    "word1": "async",
+    "word2": "await"
+  },
+  {
+    "word1": "delta",
+    "word2": "himchuli"
+  },
+  {
+    "word1": "javascript",
+    "word2": "typescript"
+  },
+  {
+    "word1": "bird",
+    "word2": "butterfly"
+  },
+  {
+    "word1": "doko",
+    "word2": "khukuri"
+  },
+  {
+    "word1": "queue",
+    "word2": "worker"
+  },
+  {
+    "word1": "chair",
+    "word2": "table"
+  },
+  {
+    "word1": "moon",
+    "word2": "sun"
+  },
+  {
+    "word1": "blanket",
+    "word2": "quilt"
+  },
+  {
+    "word1": "sushi",
+    "word2": "tempura"
+  },
+  {
+    "word1": "bakhra",
+    "word2": "hatti"
+  },
+  {
+    "word1": "bazaar",
+    "word2": "sahar"
+  },
+  {
+    "word1": "basuri",
+    "word2": "daura"
+  },
+  {
+    "word1": "castle",
+    "word2": "palace"
   }
 ]

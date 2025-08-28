@@ -14,10 +14,15 @@ import type {
   GameOverState,
   Player,
   RevealState,
-  Role,
-  WordSet,
+  Role
 } from "./types";
 import DEFAULT_WORDS from "./data/defaultWords.json";
+
+/** New raw words type that matches your JSON file */
+type RawWordSet = { word1: string; word2: string };
+
+/** The per-round resolved pair we pass to the UI/modals */
+type RoundWordSet = { civilianWord: string; undercoverWord: string };
 
 const STORAGE_KEYS = {
   words: "uc_words",
@@ -87,9 +92,9 @@ function recommendUndercover(n: number): number {
 }
 
 export default function App() {
-  // words
-  const [words, setWords] = useState<WordSet[]>(() =>
-    load<WordSet[]>(STORAGE_KEYS.words, DEFAULT_WORDS)
+  // words (RAW: {word1, word2})
+  const [words, setWords] = useState<RawWordSet[]>(() =>
+    load<RawWordSet[]>(STORAGE_KEYS.words, DEFAULT_WORDS as RawWordSet[])
   );
   const [wordsInput, setWordsInput] = useState(JSON.stringify(words, null, 2));
   const [wordsError, setWordsError] = useState("");
@@ -105,7 +110,7 @@ export default function App() {
 
   // runtime
   const [tab, setTab] = useState<"setup" | "play">("setup");
-  const [currentSet, setCurrentSet] = useState<WordSet | null>(null);
+  const [currentSet, setCurrentSet] = useState<RoundWordSet | null>(null);
   const [deck, setDeck] = useState<Card[]>([]);
   const [turnIndex, setTurnIndex] = useState<number>(0);
   const [reveal, setReveal] = useState<RevealState>({ open: false });
@@ -174,27 +179,25 @@ export default function App() {
   const currentPlayer: Player | null =
     tab === "play" && players.length > 0 ? players[turnIndex] ?? null : null;
 
-  // words actions
+  // words actions (accepts new shape [{word1, word2}])
   const onSaveWords = () => {
     setWordsError("");
     try {
-      const parsed = JSON.parse(wordsInput) as WordSet[];
+      const parsed = JSON.parse(wordsInput) as RawWordSet[];
       const ok =
         Array.isArray(parsed) &&
         parsed.every(
-          (w) =>
-            typeof w?.civilianWord === "string" &&
-            typeof w?.undercoverWord === "string"
+          (w) => typeof w?.word1 === "string" && typeof w?.word2 === "string"
         );
       if (!ok)
-        throw new Error('Must be [{"civilianWord","undercoverWord"}, ...].');
+        throw new Error('Must be [{"word1":"...","word2":"..."}, ...].');
       setWords(parsed);
     } catch (e) {
       setWordsError((e as Error).message || "Invalid JSON");
     }
   };
   const onLoadDefaults = () => {
-    setWords(DEFAULT_WORDS);
+    setWords(DEFAULT_WORDS as RawWordSet[]);
     setWordsError("");
   };
 
@@ -223,8 +226,14 @@ export default function App() {
   const buildDeckAndStart = () => {
     if (!setupValid) return;
 
-    const set = words[(Math.random() * words.length) | 0];
-    setCurrentSet(set);
+    // pick a raw set and randomly assign which word is civ/undercover
+    const raw = words[(Math.random() * words.length) | 0];
+    const flip = Math.random() < 0.5;
+    const resolved: RoundWordSet = flip
+      ? { civilianWord: raw.word1, undercoverWord: raw.word2 }
+      : { civilianWord: raw.word2, undercoverWord: raw.word1 };
+    setCurrentSet(resolved);
+
     randomizePlayers();
     const roles: Role[] = [
       ...Array(undercoverCount).fill("UNDERCOVER"),
@@ -289,25 +298,25 @@ export default function App() {
 
     // Civilians win when all bad guys are gone
     if (aliveBad === 0) {
-      // ensure modal isn't covering the banner
       setReveal({ open: false });
-      setGameOver({ open: true, winner: 'CIVILIANS', aliveBad, aliveCiv });
+      setGameOver({ open: true, winner: "CIVILIANS", aliveBad, aliveCiv });
       playSound(winnerAudio);
-      speak('Civilians win');
+      speak("Civilians win");
       return true;
     }
 
-    // Undercover side wins when bad >= civs
-    if (aliveBad >= aliveCiv) {
+    // Undercover win only when bad > civs  (🔁 changed from >= to >)
+    if (aliveBad > aliveCiv) {
       setReveal({ open: false });
-      setGameOver({ open: true, winner: 'UNDERCOVER', aliveBad, aliveCiv });
+      setGameOver({ open: true, winner: "UNDERCOVER", aliveBad, aliveCiv });
       playSound(winnerAudio);
-      speak('Undercover team wins');
+      speak("Undercover team wins");
       return true;
     }
 
     return false;
   }
+
 
   // card pick handler (by current player only)
   const onPickCard = (index: number) => {
@@ -350,16 +359,15 @@ export default function App() {
   };
 
   const randomizePlayers = () =>{
-    let order = new Set<number>();
-    
-    const tempPlayers = [];
+    const order = new Set<number>();
+    const tempPlayers: Player[] = [];
     const max = totalPlayers - 1;
     const min = 0;
 
     for(let i = 0; i < totalPlayers; ++i){
-      let ind = Math.floor(Math.random() * (max - min + 1) + min);;
+      let ind = Math.floor(Math.random() * (max - min + 1) + min);
       while (order.has(ind)){
-        ind = Math.floor(Math.random() * (max - min + 1) + min);;
+        ind = Math.floor(Math.random() * (max - min + 1) + min);
       }
       order.add(ind);
       tempPlayers.push(players[ind]);
