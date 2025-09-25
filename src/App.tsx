@@ -305,8 +305,17 @@ export default function App() {
       return true;
     }
 
-    // Undercover win only when bad > civs  (🔁 changed from >= to >)
+    // Undercover win when bad > civs  (🔁 changed from >= to >)
     if (aliveBad > aliveCiv) {
+      setReveal({ open: false });
+      setGameOver({ open: true, winner: "UNDERCOVER", aliveBad, aliveCiv });
+      playSound(winnerAudio);
+      speak("Undercover team wins");
+      return true;
+    }
+
+    // Undercover win when only 1 bad and 1 civ remain (sudden death)
+    if (aliveBad === 1 && aliveCiv === 1) {
       setReveal({ open: false });
       setGameOver({ open: true, winner: "UNDERCOVER", aliveBad, aliveCiv });
       playSound(winnerAudio);
